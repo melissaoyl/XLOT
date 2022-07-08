@@ -3,7 +3,7 @@ import LoginPage from "@/components/LoginPage.vue";
 
 const routes = [
     {
-        path: "/loginpage",
+        path: "/",
         name: "LoginPage",
         component: LoginPage,
     },

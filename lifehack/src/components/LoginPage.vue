@@ -1,19 +1,27 @@
 <template>
-    <div id="page">
-        <img id="logo" src="@/assets/logo.png" alt="logo" />
-    </div>
+  <div id="page">
+    <form>
+      <img id="logo" src="@/assets/logo.png" alt="logo" />
+      <h1 class="title">Login</h1>
+      <label for="email">Email:</label>
+      <input type="text" id="email" /><br />
+      <label for="password">Password:</label>
+      <input type="password" id="password" /><br />
+      <input type="submit" value="Login" />
+    </form>
+  </div>
 </template>
 
 <script>
 // import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 export default {
-  name: 'LoginPage',
+  name: "LoginPage",
 
   props: {
     route: String,
   },
-}
+};
 
 //   data() {
 //     return {
@@ -58,7 +66,6 @@ p {
   margin-right: 0%;
 }
 
-
 #logo {
   width: 200px;
   display: block;
@@ -66,13 +73,15 @@ p {
   margin-right: auto;
 }
 
-#emailIcon, #passwordIcon {
+#emailIcon,
+#passwordIcon {
   width: 30px;
   height: 30px;
   margin: 10px;
 }
 
-#email, #password {
+#email,
+#password {
   width: 80%;
   display: flex;
   flex-direction: row;
@@ -83,7 +92,7 @@ p {
 
 #loginBtn {
   background-color: #abe6e9;
-  color:black;
+  color: black;
   border: none;
   border-radius: 10px;
   padding: 0 30px 0 30px;
@@ -104,7 +113,8 @@ p {
   font-size: 14px;
 }
 
-#emailField, #passwordField{
+#emailField,
+#passwordField {
   padding: 12px 20px;
   width: 225px;
   height: 40px;
@@ -138,6 +148,4 @@ p {
   justify-content: space-evenly;
   margin: auto 30px auto 30px;
 }
-
 </style>
-
