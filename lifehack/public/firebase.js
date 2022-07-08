@@ -14,7 +14,7 @@ firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
 
 function setData() {
-    db.collection("users").doc("testdata").set({
+    db.collection("Users").doc("testdata").set({
         name: "John Doe",
         age: 35,
         email: "hihi"
@@ -25,4 +25,4 @@ function setData() {
     .catch((error) => {
         console.error("Error adding document: ", error);
     });
-    )
+}
