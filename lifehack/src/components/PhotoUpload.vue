@@ -59,10 +59,12 @@ export default {
     TopBanner
 },
   data() {
+
       return {
         previewImage: null,
         previewImagee: null,
-        user: false
+        user: false,
+        Unredeemed : 0
       };
     },
   methods: {
@@ -107,30 +109,62 @@ export default {
         }
         else{
         addDoc(collection(db, "users", String(this.user), "pics" ), pic )//String(this.previewImage))
-        console.log("done")
-        alert("Pictures Successfully Uploaded!")
-        this.previewImage = null
-        this.previewImagee = null
-        }
+        // let x = getDoc(db,"users",String(this.user))
+        // this.Unredeemed = x.Unredeemed
+        // console.log(x.Unredeemed)
+        // var data = {    
+        // Unredeemed: (this.Unredeemed + 1)
+}
+      },
+// const docRef = doc(db, "users", String(this.user));
+// updateDoc(docRef, data).then(() => {
+//     console.log("Value of an Existing Document Field has been updated");
+// })
+// .catch(error => {
+//     console.log(error);
+// })
+//         alert("Pictures Successfully Uploaded!")
+//         this.previewImage = null
+//         this.previewImagee = null
+//         }
     
 
-      },
+   },
+    //   async get(){
+    //     let x = getDoc(db,"users",String(this.user))
+    //     this.Unredeemed = x.Unredeemed
+    //     console.log(x.Unredeemed)
 
-  },
+    //   },
+    //   update(){
+    //     updateDoc(doc(db,"users",this.user),{
+    //         ['unredeemed']: this.unredeemed+1
+    //     })
+
+
+    //   }
+
+//   },
     beforeMount() {
     const auth = getAuth();
+    
     onAuthStateChanged(auth, (user) => {
       if (user) {
         console.log("this is true");
         this.user = auth.currentUser.email;
         console.log(this.user)
+        
 
       }
       else{
         this.user = false
       }
     })
-    }
+     } 
+    // mounted(){
+    //    this.update()
+    // }
+
 }
 </script>
  

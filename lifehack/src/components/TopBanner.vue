@@ -29,7 +29,7 @@ export default {
         console.log("this is true");
         this.user = auth.currentUser.email;
         console.log(this.user)
-        this.getScores()
+
 
       }
       else{
