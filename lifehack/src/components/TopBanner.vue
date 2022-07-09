@@ -1,23 +1,23 @@
 <template>
-  <div id="main">
-    <div id="header">
-      <img id="logo" src="@/assets/logo.png" alt="logo" />
-      <h2 id="welcome">Welcome Back {{ this.user }} !</h2>
-      <button id="profileBtn" type="button" @click="goToProfile()">
-        Your Profile
-      </button>
-      <button id="uploadBtn" type="button" @click="goToUpload()">
-        Upload Your Plate
-      </button>
+    <div id="main">
+        <div id="header">
+        <img id="logo" src="@/assets/logo.png" alt="logo" />
+        <h2 id="welcome">Welcome Back {{ this.user }} !</h2>
+        <button id="profileBtn" type="button" @click="goToProfile()">
+            Your Profile
+        </button>
+        <button id="uploadBtn" type="button" @click="goToUpload()">
+            Upload Your Plate
+        </button>
+        </div>
+        <div id="logoutButton">
+        <LogOut />
+        </div>
     </div>
     <div id="logoutButton">
-      <LogOut />
+        <LogOut />
     </div>
-  </div>
-  <div id="logoutButton">
-    <LogOut />
-  </div>
-  <br />
+    <br />
 </template>
 
 <script>
