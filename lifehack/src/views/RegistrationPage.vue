@@ -45,8 +45,8 @@
                 <br />
             <div class="tnc">
                 <div id = "honorcode">
-                    <p> XLOT is a good-willed campaign aimed to help raise awareness and cultivate a habit of ensuring that little food  as possible is wasted. We intend to utlise both human checks as well
-                        as well as a machine-learning model to ensure the integrity of our campaign at XLOT. In the event where we detect intentional attempts to manipulate the system to reap the benefits 
+                    <p> XLOT is a good-willed campaign aimed to help raise awareness and cultivate a habit of ensuring that little food as possible is wasted. We intend to utilise both human checks as well
+                        as a machine-learning model to ensure the integrity of our campaign at XLOT. In the event where we detect intentional attempts to manipulate the system to reap the benefits 
                         without fulfilling the outcomes of XLOT, we reserve the right to ban such users from XLOT and any future campaigns by XLOT.inc .
                     </p>
                 </div>
