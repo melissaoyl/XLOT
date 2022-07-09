@@ -134,3 +134,63 @@ export default {
 };
 
 </script>
+
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Barlow&display=swap');
+
+h1 {
+    background-color: #ffffff;
+    font-size: 20px;
+}
+
+label {
+    display: inline-block;
+    width: 150px;
+    margin-right: 5px;
+    text-align: right;
+}
+
+#logo {
+    width: 200px;
+    margin: auto;
+    display: block;
+}
+
+#loginPromptRouter {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#page {
+    background-color: #ffffff;
+    height: 100vh;
+    
+}
+
+#signUpButton {
+    background-color: #DFE8CC;
+    border: none;
+    border-radius: 10px;
+    padding: 7px;
+    padding-left: 25px;
+    padding-right: 25px;
+    cursor: pointer;
+    font-family: 'Barlow', sans-serif;  font-weight: 700;    font-weight: 700;
+}
+
+#nav {
+    padding: 30px;
+}
+
+#fullName, #mobileNum, #emailAddress, #setPassword, #repeatPassword {
+    width: 200px;
+    height: 30px;
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    text-indent: 10px;
+    margin: auto 7px auto 2px;
+}
+
+</style>

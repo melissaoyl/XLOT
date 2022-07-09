@@ -14,7 +14,7 @@
         </div>
         <br />
         <div id="password">
-          <img id="passwordIcon" alt="Password Icon" />
+          <img id="passwordIcon" src="@/assets/password.png" alt="Password Icon" />
           <input
             id="passwordField"
             type="password"
@@ -87,7 +87,7 @@ export default {
 </script>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css?family=Montserrat:500");
+@import url('https://fonts.googleapis.com/css2?family=Barlow&display=swap');
 
 p {
   text-align: center;
@@ -120,25 +120,23 @@ p {
 }
 
 #loginBtn {
-  background-color: #abe6e9;
+  background-color: #DFE8CC;
   color: black;
   border: none;
   border-radius: 10px;
-  padding: 0 30px 0 30px;
-  font-family: "Montserrat";
-  font-weight: 700;
+  padding: 0px 30px 0px 30px;
+  font-family: 'Barlow', sans-serif;  font-weight: 700;
   cursor: pointer;
 }
 
 #pwRouter {
   color: #000000;
-  font-family: "Montserrat";
-  font-size: 14px;
+  font-family: 'Barlow', sans-serif;  font-size: 14px;
 }
 
 #registerRouter {
   color: #000000;
-  font-family: "Montserrat";
+  font-family: 'Barlow', sans-serif;
   font-size: 14px;
 }
 
