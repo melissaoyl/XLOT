@@ -25,15 +25,6 @@
                     />
                     <br /><br />
 
-                    <!-- <label for="mobileNum">Mobile Number: </label>
-                    <input
-                        type="text"
-                        id="mobileNum"
-                        required=""
-                        placeholder="Enter your Mobile Number"
-                    />
-                    <br /><br /> -->
-
                     <label for="setPassword">Password: </label>
                     <input
                         type="password"
@@ -75,16 +66,11 @@ import firebaseApp from "../firebase.js";
 import { getFirestore, setDoc, doc} from "firebase/firestore";
 // import { collection, addDoc } from "firebase/firestore";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-// import VuePhoneNumberInput from 'vue-phone-number-input';
-// import 'vue-phone-number-input/dist/vue-phone-number-input.css';
 
 const db = getFirestore(firebaseApp);
 
 export default {
     name: "RegistrationPage",
-    // components: {
-    //     VuePhoneNumberInput
-    // },
 
     data() {
         return {

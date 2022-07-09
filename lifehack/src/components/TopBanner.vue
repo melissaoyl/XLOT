@@ -1,9 +1,10 @@
 <template>
     <div id="main">
         <div id ="header">
+            <img id="logo" src="@/assets/logo.png" alt="logo" />
             <h2 id="welcome">Welcome Back {{this.user}} !</h2>
-            <button id="profileBtn" type=button @click="goToProfile()">Profile</button>
-            <button id="uploadBtn" type=button @click="goToUpload()">Upload</button>
+            <button id="profileBtn" type=button @click="goToProfile()">Your Profile</button>
+            <button id="uploadBtn" type=button @click="goToUpload()">Upload Your Plate</button>
         </div>
         <div id ="logoutButton">
             <LogOut />
@@ -73,7 +74,7 @@ h2 {
     padding: 0;
     border-bottom: 3px darkgrey solid;
     box-shadow: 0px 0px 2px 0px;
-    background-color: #446A46;
+    background-color: #7baf7d;
 }
 
 #welcome {
@@ -99,7 +100,7 @@ h2 {
 }
 
 #profileBtn , #uploadBtn {
-    background-color: #446A46;
+    background-color: #7baf7d;
     border: none;
     border-radius: 10px;
     padding: 7px;
@@ -108,8 +109,9 @@ h2 {
     cursor: pointer;
     font-family: Avenir, Helvetica, Arial, sans-serif;
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 600;
     color: white;
+    text-decoration: underline;
 }
 
 #logoutButton {
@@ -117,8 +119,12 @@ h2 {
     right: 1%;
     top: 0;
     padding: 10px;
-    background-color: #446A46;
+    background-color: #7baf7d;
 }
 
+#logo {
+    width: 100px;
+    margin-left: 20px;
+    }
 </style>
 
