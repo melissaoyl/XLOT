@@ -4,14 +4,14 @@ import RegistrationPage from "@/views/RegistrationPage.vue";
 
 const routes = [
     {
-        path: "/",
-        name: "LoginPage",
-        component: LoginPage,
-    },
-    {
         path: "/register",
         name: "RegistrationPage",
         component: RegistrationPage,
+    },
+    {
+        path: "/",
+        name: "LoginPage",
+        component: LoginPage,
     }
     ];
 

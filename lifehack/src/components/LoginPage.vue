@@ -4,7 +4,7 @@
     <div id="container">
       <form @submit.prevent="login">
         <div id="email">
-          <img id="emailIcon" alt="Email Icon" />
+          <img id="emailIcon" src="@/assets/email.png" alt="Email Icon" />
           <input
             id="emailField"
             type="email"
@@ -32,7 +32,7 @@
         </p>
       </div>
       <p>
-        <router-link id="registerRouter" to="/">
+        <router-link id="registerRouter" to="/register">
           Do not have an account? Register here!
         </router-link>
       </p>
@@ -156,7 +156,7 @@ p {
 }
 
 #page {
-  background-color: #fff8f8;
+  background-color: #ffffff;
   height: 100vh;
   margin: 0;
 }

@@ -63,7 +63,7 @@
             </div>
         </form>
         <div id="loginLink">
-            <router-link to="/login"> Already have an account? Login here! </router-link>
+            <router-link to="/"> Already have an account? Login here! </router-link>
         </div>
     </div>
     </div>
