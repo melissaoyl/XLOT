@@ -76,7 +76,6 @@
             Sign Up
           </button>
         </div>
-      </form>
       <br />
       <div id="loginLink">
         <router-link to="/"> Already have an account? Login here! </router-link>
