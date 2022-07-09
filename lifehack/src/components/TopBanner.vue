@@ -46,7 +46,7 @@ export default {
 
     methods: {
         goToProfile() {
-            this.$router.push("/profilepage");
+            this.$router.push("/profiledisplay");
         },
 
         goToUpload() {

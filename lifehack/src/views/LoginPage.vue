@@ -59,7 +59,7 @@ export default {
 
   methods: {
     submit() {
-      let route = "/profilepage";
+      let route = "/profiledisplay";
       // if (!this.route) {
       //   route = "/";
       // }

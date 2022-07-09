@@ -13,6 +13,7 @@
     "firebaseui": "^0.600.0",
     "redux": "^4.2.0",
     "vue": "^3.2.13",
+    "vue-phone-number-input": "^1.1.12",
     "vue-router": "^4.1.1",
     "vuex": "^4.0.2"
   },
