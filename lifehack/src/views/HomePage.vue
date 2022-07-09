@@ -8,12 +8,12 @@ reducing our personal food wastage is one of the best ways in which we could ind
 
 <h2>What is XLOT? XLOT is an application we created which helps to keep ourselves accountable for finishing our food. XLOT implements a simple mechanism which requires the participant to upload 
     their own plates/bowls at the beginning of their meal and at the end of the meal to keep themselves accountable to wasting as little food as possible during each meal. As a reward, with each upload,
-    participants stand a chance to redeem one of 5 stickers, Willy, Abi, Sally, Tye and Era. Whenever a user successfully collects at least one of each sticker, the participate would be eligible for a 
+    participants stand a chance to redeem one of 5 stickers, Willy, Abi, Sally, Tye and Era (WASTE). Whenever a user successfully collects at least one of each sticker, the participate would be eligible for a 
     very generous cash reward, redeemable via Paynow or Paylah!
 </h2>
 <table id="counter_table" width="100%">
       <tr>
-        <th><b>W</b>illy</th>
+        <th>Willy</th>
         <th>Abi</th>
         <th>Sally</th>
         <th>Tye</th>
@@ -41,7 +41,7 @@ reducing our personal food wastage is one of the best ways in which we could ind
   <div id = "getStarted">
     <button id = "getStartedButton" @click="goToLogin">Start Finishing Your Food Now!</button>
   </div>
-  <br> <br>
+  <br> <br> 
   <div id = "aboutCreators">
     <h2>About the Creators</h2>
     <div class="column">
@@ -121,20 +121,20 @@ h1 {
 .info {
   background: #edfaf0;
   margin-top: 30px;
-  margin-bottom: 150px;
+  margin-bottom: 50px;
   margin-right: 40px;
   margin-left: 120px;
   border: 3px solid #436c50;
   border-radius: 20px;
+  padding: 30px;
 }
 
 #getStartedButton {
-    background-color: #e6f8ea;
+    background-color: #c1ecca;
     border: none;
     border-radius: 10px;
     padding: 7px;
-    padding-left: 25px;
-    padding-right: 25px;
+    padding: 30px;
     cursor: pointer;
     font-family: 'Barlow', sans-serif;  
     font-weight: 700;
@@ -188,26 +188,15 @@ html {
   color: grey;
 }
 
-.button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 8px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-}
-
-.button:hover {
-  background-color: #555;
-}
-
 @media screen and (max-width: 50px) {
   .column {
     width: 50%;
     display: block;
   }
 }
+
+#aboutCreators {
+  margin-top: 50px;
+}
+
 </style>

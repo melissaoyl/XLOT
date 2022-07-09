@@ -224,12 +224,14 @@ label {
 }
 
 .tnc {
-    width: 400px;
-    margin: auto;
+    width: 90%;
+    margin: 20px;
 }
 
 #honorcode {
     border: 1px solid #436c50;
     border-radius: 5px;
+    width: 100%;
+    padding: 5px;
 }
 </style>
