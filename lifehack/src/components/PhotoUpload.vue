@@ -1,26 +1,27 @@
 <template>
     <form @submit.prevent > 
-         <h3 class = "heading"> Please ensure that the photos are in JPEG format !</h3>
+        <br><br>
+        <h3 class = "heading"> Please ensure that the photos are in JPEG format !</h3>
   <div class = "before">
-   
+
     <div
-        
       class="imagePreviewWrapper"
       :style="{ 'background-image': `url(${previewImage})` }"
-      @click="selectImage">
-   
+    >
+
     </div>
     <input
+      id="beforePhoto"
       ref="fileInput"
       type="file"
       @input="pickFile">
-       <h3>Pre-Meal Photo</h3>
+    <h3>Pre-Meal Photo</h3>
   </div>
-    <div class = "before">
+    <div class = "after">
     <div
       class="imagePreviewWrapper"
       :style="{ 'background-image': `url(${previewImagee})` }"
-      @click="selectImage2">
+      >
     
     </div>
     <input
@@ -29,12 +30,12 @@
       @input="pickFile2">
         <h3>Post-Meal Photo</h3>
   </div>
-    <br><br>
-    <input id="button" type ="submit" value = "Upload" v-on:click="sendtoFB">
+    <br>
+    <input id="uploadButton" type ="submit" value = "Upload Photos" v-on:click="sendtoFB">
     </form>
     <!-- <button @click="sendtoFB">Upload</button> -->
 </template>
- 
+
 <script>
 import firebaseApp from '../firebase.js'
 import {getFirestore, addDoc, collection} from "firebase/firestore";
@@ -102,13 +103,12 @@ export default {
   }
 }
 </script>
- 
+
 <style scoped lang="scss">
 .imagePreviewWrapper {
     width: 250px;
     height: 250px;
     display: block;
-    cursor: pointer;
     margin: 0 auto 30px;
     background-size: cover;
     background-position: center center;
@@ -120,8 +120,28 @@ export default {
 }
 .after{
     display: inline-block;
+    padding: 100px;
 }
 .heading{
     text-align: center;
 }
+
+#uploadButton {
+  background-color: #DFE8CC;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-family: 'Barlow', sans-serif;  font-weight: 700;
+  cursor: pointer;
+}
+
+.imagePreviewWrapper {
+  color: black;
+  border-radius: 10px;
+  background-color: white; 
+}
+
+
+
 </style>

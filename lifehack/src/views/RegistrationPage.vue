@@ -2,7 +2,7 @@
     <div id="page">
         <img id="logo" src="@/assets/logo.png" alt="logo" />
     
-    <h1> Create a new account</h1>
+    <h1> Create A New Account</h1>
     <br>
         <div class="container">
             <form id="userRegistration">
@@ -18,7 +18,7 @@
 
                     <label for="mobileNum">Mobile Number: </label>
                     <input
-                        type="number"
+                        type="tel"
                         id="mobileNum"
                         required=""
                         placeholder="Enter your Mobile Number"
@@ -51,7 +51,7 @@
                         placeholder="Enter your Password again"
                     />
                 </div>
-                <br /><br />
+                <br />
             <div class="signUp">
                 <button
                     id="signUpButton"
@@ -62,6 +62,7 @@
                 </button>
             </div>
         </form>
+        <br />
         <div id="loginLink">
             <router-link to="/"> Already have an account? Login here! </router-link>
         </div>
@@ -163,8 +164,12 @@ label {
 
 #page {
     background-color: #ffffff;
-    height: 100vh;
-    
+    /* height: 600px;
+    width: 600px; */
+    margin: 10% 20% auto;
+    border-radius: 1.5em;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+    padding: 25px;
 }
 
 #signUpButton {
@@ -183,14 +188,22 @@ label {
 }
 
 #fullName, #mobileNum, #emailAddress, #setPassword, #repeatPassword {
-    width: 200px;
-    height: 30px;
+    width: 40%;
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: rgba(136, 126, 126, 0.04);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
     outline: none;
-    border: 1px solid #ccc;
-    border-radius: 10px;
     box-sizing: border-box;
-    text-indent: 10px;
-    margin: auto 7px auto 2px;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-left: 46px;
+    text-align: center;
+    margin-bottom: 5px;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 </style>

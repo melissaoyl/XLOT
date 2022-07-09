@@ -1,43 +1,41 @@
 <template>
-  <div id="page">
-    <img id="logo" src="@/assets/logo.png" alt="logo" />
-    <div id="container">
-      <form @submit.prevent="login">
-        <div id="email">
-          <img id="emailIcon" src="@/assets/email.png" alt="Email Icon" />
-          <input
-            id="emailField"
-            type="email"
-            placeholder="Email address..."
-            v-model="email"
-          />
-        </div>
-        <br />
-        <div id="password">
-          <img id="passwordIcon" src="@/assets/password.png" alt="Password Icon" />
-          <input
-            id="passwordField"
-            type="password"
-            placeholder="Password..."
-            v-model="password"
-          />
-        </div>
-      </form>
-      <br />
+  <body>
+    <div id="page">
+      <img id="logo" src="@/assets/logo.png" alt="logo" />
+      <div id="container">
+        <form @submit.prevent="login">
+          <div id="email">
+            <img id="emailIcon" src="@/assets/email.png" alt="Email Icon" />
+            <input
+              id="emailField"
+              type="email"
+              placeholder="Email address..."
+              v-model="email"
+            />
+          </div>
+          <br />
+          <div id="password">
+            <img id="passwordIcon" src="@/assets/password.png" alt="Password Icon" />
+            <input
+              id="passwordField"
+              type="password"
+              placeholder="Password..."
+              v-model="password"
+            />
+          </div>
+        </form>
 
-      <div id="row">
-        <button id="loginBtn" type="submit" v-on:click="submit()">Login</button>
+        <div id="row">
+          <button id="loginBtn" type="submit" v-on:click="submit()">Login</button>
+        </div>
         <p>
-          <router-link id="pwRouter" to="/"> Forgot password </router-link>
+          <router-link id="registerRouter" to="/register">
+            Do not have an account? Register here!
+          </router-link>
         </p>
       </div>
-      <p>
-        <router-link id="registerRouter" to="/register">
-          Do not have an account? Register here!
-        </router-link>
-      </p>
     </div>
-  </div>
+  </body>
 </template>
 
 <script>
@@ -89,6 +87,12 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Barlow&display=swap');
 
+body {
+  background-color: #e6f8ea;
+  width: 100vw;
+  height: 100vh;
+}
+
 p {
   text-align: center;
   margin-left: 0%;
@@ -98,8 +102,7 @@ p {
 #logo {
   width: 200px;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
 
 #emailIcon,
@@ -124,14 +127,9 @@ p {
   color: black;
   border: none;
   border-radius: 10px;
-  padding: 0px 30px 0px 30px;
+  padding: 10px 20px;
   font-family: 'Barlow', sans-serif;  font-weight: 700;
   cursor: pointer;
-}
-
-#pwRouter {
-  color: #000000;
-  font-family: 'Barlow', sans-serif;  font-size: 14px;
 }
 
 #registerRouter {
@@ -142,25 +140,46 @@ p {
 
 #emailField,
 #passwordField {
-  padding: 12px 20px;
+    width: 76%;
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: rgba(136, 126, 126, 0.04);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-bottom: 50px;
+    margin-left: 46px;
+    text-align: center;
+    margin-bottom: 27px;
+    font-family: 'Ubuntu', sans-serif;
+    /* padding: 12px 20px;
   width: 225px;
-  height: 40px;
-  outline: none;
+  height: 40px; */
+  /* outline: none;
   border: 1px solid #ccc;
   border-radius: 10px;
-  box-sizing: border-box;
-  text-indent: 10px;
-  margin: auto 7px auto 2px;
+  box-sizing: border-box; */
+  /* text-indent: 10px;
+  margin: auto 7px auto 2px; */
 }
 
 #page {
   background-color: #ffffff;
-  height: 100vh;
-  margin: 0;
+  /* height: 600px;
+  width: 600px; */
+  margin: 10% 20% auto;
+  border-radius: 1.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+  padding: 20px;
 }
 
 #container {
-  width: 400px;
+  width: 60%;
   height: auto;
   margin: 50px auto;
   border-radius: 5px;
