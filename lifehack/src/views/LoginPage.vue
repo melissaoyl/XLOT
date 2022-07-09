@@ -14,7 +14,11 @@
         </div>
         <br />
         <div id="password">
-          <img id="passwordIcon" src="@/assets/password.png" alt="Password Icon" />
+          <img
+            id="passwordIcon"
+            src="@/assets/password.png"
+            alt="Password Icon"
+          />
           <input
             id="passwordField"
             type="password"
@@ -61,7 +65,7 @@ export default {
 
   methods: {
     submit() {
-      let route = "/helloworld";
+      let route = "/profilepage";
       // if (!this.route) {
       //   route = "/";
       // }
@@ -87,7 +91,7 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Barlow&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Barlow&display=swap");
 
 p {
   text-align: center;
@@ -120,23 +124,25 @@ p {
 }
 
 #loginBtn {
-  background-color: #DFE8CC;
+  background-color: #dfe8cc;
   color: black;
   border: none;
   border-radius: 10px;
   padding: 0px 30px 0px 30px;
-  font-family: 'Barlow', sans-serif;  font-weight: 700;
+  font-family: "Barlow", sans-serif;
+  font-weight: 700;
   cursor: pointer;
 }
 
 #pwRouter {
   color: #000000;
-  font-family: 'Barlow', sans-serif;  font-size: 14px;
+  font-family: "Barlow", sans-serif;
+  font-size: 14px;
 }
 
 #registerRouter {
   color: #000000;
-  font-family: 'Barlow', sans-serif;
+  font-family: "Barlow", sans-serif;
   font-size: 14px;
 }
 

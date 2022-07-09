@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from "vue-router";
 import LoginPage from "@/views/LoginPage.vue";
 import RegistrationPage from "@/views/RegistrationPage.vue";
 import PhotoUpload from "@/components/PhotoUpload.vue"
+import HomePage from "@/views/HomePage.vue";
+import ProfilePage from "@/views/ProfilePage.vue";
 
 const routes = [
     {
@@ -17,6 +19,14 @@ const routes = [
         path: "/PhotoUpload",
         name: "PhotoUpload",
         component: PhotoUpload
+    },{
+        path: "/home",
+        name: "HomePage",
+        component: HomePage
+    },{
+        path: "/profilepage",
+        name: "ProfilePage",
+        component: ProfilePage
     }
     ];
 
