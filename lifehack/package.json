@@ -17,6 +17,7 @@
     "vue": "^3.2.13",
     "vue-phone-number-input": "^1.1.12",
     "vue-router": "^4.1.1",
+    "vue3-fortune-wheel": "^1.0.0",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
