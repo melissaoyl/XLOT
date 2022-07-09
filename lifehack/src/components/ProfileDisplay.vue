@@ -1,5 +1,7 @@
 <template>
-  <div id="main">
+
+  <div id="main" v-if="user">
+<TopBanner/>
 <h1 id="title"> Upload History</h1>
   <table id = "table">
       <tr>
@@ -9,21 +11,38 @@
         </tr>
   </table> <br><br>
 </div>
+      <div v-else>
+    <Login route="" />
+  </div>
 </template>
 
 <script>
 import firebaseApp from '../firebase.js'
 import {getFirestore, getDocs, collection} from "firebase/firestore";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import Login from "../views/LoginPage.vue";
+import TopBanner from './TopBanner.vue';
 
 const db = getFirestore(firebaseApp)
 
-
-
 export default {
-    mounted() {
-                async function getScores(){
+    components:{
+        Login,
+        TopBanner
+    },
+  data() {
+      return {
+        user: false
+      };
+    },
+
+
+
+   
+    methods:{
+                async  getScores(){
           
-            let x = await getDocs(collection(db,"users","thomthom","pics"))
+            let x = await getDocs(collection(db,"users",this.user,"pics"))
             let ind = 1;
             const map =[]
             x.forEach((docs) =>{
@@ -61,9 +80,24 @@ export default {
                 }
             }
         }
-        getScores()
 
 
+
+    },
+         beforeMount() {
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log("this is true");
+        this.user = auth.currentUser.email;
+        console.log(this.user)
+        this.getScores()
+
+      }
+      else{
+        this.user = false
+      }
+    })
     }
 
 }

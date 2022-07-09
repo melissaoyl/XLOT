@@ -1,5 +1,8 @@
 <template>
-    <form @submit.prevent > 
+
+   <div v-if="user"> 
+   <TopBanner/>
+   <form @submit.prevent > 
          <h3 class = "heading"> Please ensure that the photos are in JPEG format !</h3>
   <div class = "before">
    
@@ -33,19 +36,33 @@
     <input id="button" type ="submit" value = "Upload" v-on:click="sendtoFB">
     </form>
     <!-- <button @click="sendtoFB">Upload</button> -->
+    </div> 
+      <div v-else>
+    <Login route="" />
+  </div>
+
 </template>
  
 <script>
+
 import firebaseApp from '../firebase.js'
 import {getFirestore, addDoc, collection} from "firebase/firestore";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import Login from "../views/LoginPage.vue";
+import TopBanner from './TopBanner.vue';
 
 const db = getFirestore(firebaseApp)
 
 export default {
+    components:{
+    Login,
+    TopBanner
+},
   data() {
       return {
         previewImage: null,
-        previewImagee: null
+        previewImagee: null,
+        user: false
       };
     },
   methods: {
@@ -89,7 +106,7 @@ export default {
             alert("Please upload both images before submitting!")
         }
         else{
-        addDoc(collection(db, "users", "thomthom", "pics" ), pic )//String(this.previewImage))
+        addDoc(collection(db, "users", String(this.user), "pics" ), pic )//String(this.previewImage))
         console.log("done")
         alert("Pictures Successfully Uploaded!")
         this.previewImage = null
@@ -99,7 +116,21 @@ export default {
 
       },
 
-  }
+  },
+    beforeMount() {
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log("this is true");
+        this.user = auth.currentUser.email;
+        console.log(this.user)
+
+      }
+      else{
+        this.user = false
+      }
+    })
+    }
 }
 </script>
  
