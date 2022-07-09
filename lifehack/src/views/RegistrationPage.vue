@@ -64,18 +64,6 @@
                 </button>
             </div>
         </form>
-        <br />
-        <div class="tnc">
-          <input type="checkbox" id="terms" required="" />
-          I agree to the terms and conditions
-        </div>
-        <br />
-
-        <div class="signUp">
-          <button id="signUpButton" type="button" v-on:click="checkForm()">
-            Sign Up
-          </button>
-        </div>
       <br />
       <div id="loginLink">
         <router-link to="/"> Already have an account? Login here! </router-link>
