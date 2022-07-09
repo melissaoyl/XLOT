@@ -59,7 +59,7 @@ export default {
 
   methods: {
     submit() {
-      let route = "/helloworld";
+      let route = "/profilepage";
       // if (!this.route) {
       //   route = "/";
       // }
@@ -85,7 +85,7 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Barlow&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Barlow&display=swap");
 
 body {
   background-color: #e6f8ea;
@@ -123,7 +123,7 @@ p {
 }
 
 #loginBtn {
-  background-color: #DFE8CC;
+  background-color: #dfe8cc;
   color: black;
   border: none;
   border-radius: 10px;
@@ -134,7 +134,7 @@ p {
 
 #registerRouter {
   color: #000000;
-  font-family: 'Barlow', sans-serif;
+  font-family: "Barlow", sans-serif;
   font-size: 14px;
 }
 
