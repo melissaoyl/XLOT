@@ -35,9 +35,7 @@
         <td>
           <img style="width: 200px; height: 200px" src="@/assets/erra.png" />
         </td>
-        <td>
-          <img style="width: 200px; height: 200px" src="@/assets/Tye.png" />
-        </td>
+
         <td>
        <RandomNumber/>
         </td>
