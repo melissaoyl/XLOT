@@ -2,13 +2,6 @@
   <div id="main" v-if="user">
     <TopBanner />
     <br /><br />
-    <!-- <h1 id="title">Unredeemed Counter</h1>
-    <table id="unredeemed_table" width="100%">
-      <tr>
-        <th>Unredeemed</th>
-      </tr> -->
-    <!-- </table> -->
-    <br /><br />
     <h1 id="title">Sticker Counter</h1>
     <table id="counter_table" width="100%">
       <tr>
@@ -30,14 +23,14 @@
           <img style="width: 200px; height: 200px" src="@/assets/sally.png" />
         </td>
         <td>
-          <img style="width: 200px; height: 200px" src="@/assets/Tye.png" />
+          <img style="width: 200px; height: 200px" src="@/assets/tye.png" />
         </td>
         <td>
           <img style="width: 200px; height: 200px" src="@/assets/erra.png" />
         </td>
 
         <td>
-       <RandomNumber/>
+          <RandomNumber />
         </td>
       </tr>
     </table>
@@ -54,7 +47,6 @@ import { getFirestore, getDocs, collection } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Login from "../views/LoginPage.vue";
 import TopBanner from "./TopBanner.vue";
-
 import RandomNumber from "./RandomNumber.vue";
 
 const db = getFirestore(firebaseApp);
@@ -63,8 +55,8 @@ export default {
   components: {
     Login,
     TopBanner,
-    RandomNumber
-},
+    RandomNumber,
+  },
   data() {
     return {
       user: false,
