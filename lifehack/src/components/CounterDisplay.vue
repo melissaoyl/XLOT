@@ -12,11 +12,28 @@
     <h1 id="title">Sticker Counter</h1>
     <table id="counter_table" width="100%">
       <tr>
-        <th>W</th>
-        <th>A</th>
+        <th>Will</th>
+        <th>Abi</th>
         <th>S</th>
-        <th>T</th>
+        <th>Tye</th>
         <th>E</th>
+      </tr>
+      <tr>
+        <td>
+          <img style="width: 200px; height: 200px" src="@/assets/Tye.png" />
+        </td>
+        <td>
+          <img style="width: 200px; height: 200px" src="@/assets/Tye.png" />
+        </td>
+        <td>
+          <img style="width: 200px; height: 200px" src="@/assets/Tye.png" />
+        </td>
+        <td>
+          <img style="width: 200px; height: 200px" src="@/assets/Tye.png" />
+        </td>
+        <td>
+          <img style="width: 200px; height: 200px" src="@/assets/Tye.png" />
+        </td>
       </tr>
     </table>
     <br /><br />
@@ -54,38 +71,57 @@ export default {
 
   methods: {
     async getCounterValues() {
-      let x = await getDocs(collection(db, "users"));
-
-      x.forEach((docs) => {
-        console.log(docs);
-      });
-      //   let ind = 1;
-      //   const map = [];
-      //   x.forEach((docs) => {
-      //     let counterdata = docs.data();
-      //     let w = counterdata.W;
-      //     let a = counterdata.A;
-      //     let s = counterdata.S;
-      //     let t = counterdata.T;
-      //     let e = counterdata.E;
-
-      //     map.push([w, a, s, t, e]);
+      const querySnapshot = await getDocs(collection(db, "users"));
+      //   querySnapshot.forEach((doc) => {
+      //     if (doc.data().emailAddress == this.user) {
+      //       console.log(doc.id, " => ", doc.data());
+      //     }
       //   });
 
-      //   for (let i in map) {
-      //     if (map[i][0] != null) {
-      //       var table = document.getElementById("counter_table");
-      //       var row = table.insertRow(ind);
-      //       row.insertCell(0);
-      //       row.insertCell(1);
-      //       row.insertCell(2);
-      //       row.insertCell(3);
-      //       row.insertCell(4);
+      let ind = 1;
+      const map = [];
+      querySnapshot.forEach((docs) => {
+        if (docs.data().emailAddress == this.user) {
+          console.log(docs.id, " => ", docs.data());
+          let counterdata = docs.data();
+          let w = counterdata.W;
+          console.log("W :" + w);
+          let a = counterdata.A;
+          console.log("A :" + a);
+          let s = counterdata.S;
+          console.log("S :" + s);
+          let t = counterdata.T;
+          console.log("T :" + t);
+          let e = counterdata.E;
+          console.log("E :" + e);
 
-      //       ind++;
-      //       console.log("getCounter ran : " + ind);
-      //     }
-      //   }
+          map.push([w, a, s, t, e]);
+        }
+      });
+
+      for (let i in map) {
+        if (map[i][0] != null) {
+          var table = document.getElementById("counter_table");
+          var row = table.insertRow(ind);
+          var cell1 = row.insertCell(0);
+          var cell2 = row.insertCell(1);
+          var cell3 = row.insertCell(2);
+          var cell4 = row.insertCell(3);
+          var cell5 = row.insertCell(4);
+
+          cell1.innerHTML = "<h1> " + String(map[i][0]) + "</h1>";
+
+          cell2.innerHTML = "<h1> " + String(map[i][1]) + "</h1>";
+
+          cell3.innerHTML = "<h1> " + String(map[i][2]) + "</h1>";
+
+          cell4.innerHTML = "<h1> " + String(map[i][3]) + "</h1>";
+
+          cell5.innerHTML = "<h1> " + String(map[i][4]) + "</h1>";
+
+          ind++;
+        }
+      }
     },
   },
   beforeMount() {
