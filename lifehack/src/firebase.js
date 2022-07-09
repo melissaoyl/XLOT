@@ -11,6 +11,8 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
+
+
 var db = firebase.firestore();
 
 function setData() {
@@ -26,3 +28,4 @@ function setData() {
         console.error("Error adding document: ", error);
     });
 }
+export default firebaseApp;
