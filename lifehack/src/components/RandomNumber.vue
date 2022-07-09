@@ -158,7 +158,7 @@ export default {
     },
     random_value() {
       if (this.Unredeemed == 0) {
-        alert("You have no more Unredeemed left");
+        alert("You have no more Unredeemed Stickers left");
       } else {
         this.$refs.wheel.spin();
       }
