@@ -111,7 +111,14 @@ export default {
                                 mobileNum: mobileNum,
                                 emailAddress: emailAddress,
                                 userPassword: userPassword,
+                                W:0,
+                                A:0,
+                                S:0,
+                                T:0,
+                                E:0,
+                                Unredeemed:0
                             });
+                            alert("Account successfully created!")
                             document.getElementById("userRegistration").reset();
                         })
                         .catch((error) => {

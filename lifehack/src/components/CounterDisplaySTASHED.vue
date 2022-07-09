@@ -45,7 +45,13 @@
 
 <script>
 import firebaseApp from "../firebase.js";
-import { getFirestore, getDocs, collection } from "firebase/firestore";
+import {
+  getFirestore,
+  query,
+  where,
+  collection,
+  getDocs,
+} from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Login from "../views/LoginPage.vue";
 import TopBanner from "./TopBanner.vue";

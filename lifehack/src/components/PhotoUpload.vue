@@ -1,29 +1,29 @@
 <template>
 
-  <div v-if="user"> 
-  <TopBanner/>
-  <form @submit.prevent > 
-    <h3 class = "heading"> Please ensure that the photos are in JPEG format !</h3>
+   <div v-if="user"> 
+   <TopBanner/>
+   <form @submit.prevent > 
+         <h3 class = "heading"> Please ensure that the photos are in JPEG format !</h3>
   <div class = "before">
-
+   
     <div
+        
       class="imagePreviewWrapper"
       :style="{ 'background-image': `url(${previewImage})` }"
-    >
-
+      @click="selectImage">
+   
     </div>
     <input
-      id="beforePhoto"
       ref="fileInput"
       type="file"
       @input="pickFile">
-    <h3>Pre-Meal Photo</h3>
+       <h3>Pre-Meal Photo</h3>
   </div>
-    <div class = "after">
+    <div class = "before">
     <div
       class="imagePreviewWrapper"
       :style="{ 'background-image': `url(${previewImagee})` }"
-      >
+      @click="selectImage2">
     
     </div>
     <input
@@ -32,8 +32,8 @@
       @input="pickFile2">
         <h3>Post-Meal Photo</h3>
   </div>
-    <br>
-    <input id="uploadButton" type ="submit" value = "Upload Photos" v-on:click="sendtoFB">
+    <br><br>
+    <input id="button" type ="submit" value = "Upload" v-on:click="sendtoFB">
     </form>
     <!-- <button @click="sendtoFB">Upload</button> -->
     </div> 
@@ -42,11 +42,11 @@
   </div>
 
 </template>
-
+ 
 <script>
 
 import firebaseApp from '../firebase.js'
-import {getFirestore, addDoc, collection} from "firebase/firestore";
+import {getFirestore, addDoc, collection, query, where, getDocs, doc, updateDoc} from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Login from "../views/LoginPage.vue";
 import TopBanner from './TopBanner.vue';
@@ -59,10 +59,13 @@ export default {
     TopBanner
 },
   data() {
+
       return {
         previewImage: null,
         previewImagee: null,
-        user: false
+        user: false,
+        Unredeemed: 0
+
       };
     },
   methods: {
@@ -107,45 +110,106 @@ export default {
         }
         else{
         addDoc(collection(db, "users", String(this.user), "pics" ), pic )//String(this.previewImage))
-        console.log("done")
-        alert("Pictures Successfully Uploaded!")
-        this.previewImage = null
-        this.previewImagee = null
-        }
+        // let x = getDoc(db,"users",String(this.user))
+        // this.Unredeemed = x.Unredeemed
+        // console.log(x.Unredeemed)
+        var data = {    
+        Unredeemed: (this.Unredeemed + 1)}
+        const docRef = doc(db, "users", String(this.user));
+updateDoc(docRef, data).then(() => {
+    console.log("Value of an Existing Document Field has been updated");
+})
+.catch(error => {
+    console.log(error);
+})
+    alert("Photo Successfully updated")
+}
+      },
+         async get() {
+        const todoRef = collection(db, 'users');
+        const x = query(todoRef, where("emailAddress", "==", this.user));
+        // let x = await getDocs(todoRef, this.user);
+
+    const querySnapshot = await getDocs(x);
+querySnapshot.forEach((doc) => {
+    let y = doc.data()
+    
+    let a = y.Unredeemed;
+    this.Unredeemed = a
+
+
+  // doc.data() is never undefined for query doc snapshots
+    console.log(this.Unredeemed)
+
+});
+
+    //     const map = [];
+    //     console.log(x)
+    //        x.forEach((docs) => {
+    //     let s = docs.data();
+    //     let before = s.W;
+    //     let after = s.A;
+    //     let date = s.S;
+
+    //     map.push([date, before, after]);
+    //     console.log(map)
+    //   });
+      }
+
+//         alert("Pictures Successfully Uploaded!")
+//         this.previewImage = null
+//         this.previewImagee = null
+//         }
     
 
-      },
+   },
+    //   async get(){
+    //     let x = getDoc(db,"users",String(this.user))
+    //     this.Unredeemed = x.Unredeemed
+    //     console.log(x.Unredeemed)
 
-  },
+    //   },
+    //   update(){
+    //     updateDoc(doc(db,"users",this.user),{
+    //         ['unredeemed']: this.unredeemed+1
+    //     })
+
+
+    //   }
+
+//   },
     beforeMount() {
     const auth = getAuth();
+    
     onAuthStateChanged(auth, (user) => {
       if (user) {
         console.log("this is true");
         this.user = auth.currentUser.email;
         console.log(this.user)
+        this.get()
 
       }
       else{
         this.user = false
       }
     })
-    }
+     } 
+    // mounted(){
+    //    this.update()
+    // }
+
 }
 </script>
-
+ 
 <style scoped lang="scss">
 .imagePreviewWrapper {
     width: 250px;
     height: 250px;
     display: block;
+    cursor: pointer;
     margin: 0 auto 30px;
     background-size: cover;
     background-position: center center;
-}
-
-.heading {
-  margin-top: 200px;
 }
 
 .before{
@@ -154,28 +218,8 @@ export default {
 }
 .after{
     display: inline-block;
-    padding: 100px;
 }
 .heading{
     text-align: center;
 }
-
-#uploadButton {
-  background-color: #DFE8CC;
-  color: black;
-  border: none;
-  border-radius: 10px;
-  padding: 10px 20px;
-  font-family: 'Barlow', sans-serif;  font-weight: 700;
-  cursor: pointer;
-}
-
-.imagePreviewWrapper {
-  color: black;
-  border-radius: 10px;
-  background-color: white; 
-}
-
-
-
 </style>
