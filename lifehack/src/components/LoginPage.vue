@@ -1,17 +1,42 @@
 <template>
   <div id="page">
-    <form>
-      <img id="logo" src="@/assets/logo.png" alt="logo" />
-      <h1 class="title">Login</h1>
-      <label for="email">Email:</label>
-      <input type="text" id="email" /><br />
-      <label for="password">Password:</label>
-      <input type="password" id="password" /><br />
-      <input type="submit" value="Login" />
-    </form>
-    <p>
-      <router-link id="registerRouter" to="/register"> Do not have an account? Register here! </router-link>
-    </p>
+    <img id="logo" src="@/assets/logo.png" alt="logo" />
+    <div id="container">
+      <form @submit.prevent="login">
+        <div id="email">
+          <img id="emailIcon" alt="Email Icon" />
+          <input
+            id="emailField"
+            type="email"
+            placeholder="Email address..."
+            v-model="email"
+          />
+        </div>
+        <br />
+        <div id="password">
+          <img id="passwordIcon" alt="Password Icon" />
+          <input
+            id="passwordField"
+            type="password"
+            placeholder="Password..."
+            v-model="password"
+          />
+        </div>
+      </form>
+      <br />
+
+      <div id="row">
+        <button id="loginBtn" type="submit" v-on:click="submit()">Login</button>
+        <p>
+          <router-link id="pwRouter" to="/"> Forgot password </router-link>
+        </p>
+      </div>
+      <p>
+        <router-link id="registerRouter" to="/">
+          Do not have an account? Register here!
+        </router-link>
+      </p>
+    </div>
   </div>
 </template>
 
@@ -21,9 +46,9 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 export default {
   name: "LoginPage",
 
-  props: {
-    route: String,
-  },
+  // props: {
+  //   route: String,
+  // }, test
 
   data() {
     return {
@@ -40,7 +65,9 @@ export default {
       if (!this.route) {
         route = "/";
       }
+
       const auth = getAuth();
+
       signInWithEmailAndPassword(auth, this.email, this.password)
         .then(() => {
           // Signed in
@@ -121,7 +148,7 @@ p {
   width: 225px;
   height: 40px;
   outline: none;
-  border: 1px solid #ffffff;
+  border: 1px solid #ccc;
   border-radius: 10px;
   box-sizing: border-box;
   text-indent: 10px;
@@ -129,7 +156,7 @@ p {
 }
 
 #page {
-  background-color: #ffffff;
+  background-color: #fff8f8;
   height: 100vh;
   margin: 0;
 }
