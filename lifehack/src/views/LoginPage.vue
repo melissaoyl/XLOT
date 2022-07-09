@@ -61,10 +61,10 @@ export default {
 
   methods: {
     submit() {
-      let route = this.route;
-      if (!this.route) {
-        route = "/";
-      }
+      let route = "/helloworld";
+      // if (!this.route) {
+      //   route = "/";
+      // }
 
       const auth = getAuth();
 
