@@ -3,14 +3,14 @@
    <div v-if="user"> 
    <TopBanner/>
    <form @submit.prevent > 
-         <h3 class = "heading"> Please ensure that the photos are in JPEG format !</h3>
+      <h3 class = "heading"> Please ensure that the photos are in JPEG or PNG format !</h3>
   <div class = "before">
    
     <div
         
       class="imagePreviewWrapper"
       :style="{ 'background-image': `url(${previewImage})` }"
-      @click="selectImage">
+      >
    
     </div>
     <input
@@ -23,7 +23,7 @@
     <div
       class="imagePreviewWrapper"
       :style="{ 'background-image': `url(${previewImagee})` }"
-      @click="selectImage2">
+      >
     
     </div>
     <input
@@ -32,8 +32,8 @@
       @input="pickFile2">
         <h3>Post-Meal Photo</h3>
   </div>
-    <br><br>
-    <input id="button" type ="submit" value = "Upload" v-on:click="sendtoFB">
+    <br>
+    <input id="uploadButton" type ="submit" value = "Upload" v-on:click="sendtoFB">
     </form>
     <!-- <button @click="sendtoFB">Upload</button> -->
     </div> 
@@ -42,7 +42,7 @@
   </div>
 
 </template>
- 
+
 <script>
 
 import firebaseApp from '../firebase.js'
@@ -125,7 +125,7 @@ updateDoc(docRef, data).then(() => {
     alert("Photo Successfully updated")
 }
       },
-         async get() {
+        async get() {
         const todoRef = collection(db, 'users');
         const x = query(todoRef, where("emailAddress", "==", this.user));
         // let x = await getDocs(todoRef, this.user);
@@ -193,23 +193,28 @@ querySnapshot.forEach((doc) => {
         this.user = false
       }
     })
-     } 
+    } 
     // mounted(){
     //    this.update()
     // }
 
 }
 </script>
- 
 <style scoped lang="scss">
 .imagePreviewWrapper {
     width: 250px;
     height: 250px;
     display: block;
-    cursor: pointer;
     margin: 0 auto 30px;
     background-size: cover;
     background-position: center center;
+    background-color: #ffffff;
+    border-radius: 20px;
+}
+
+.heading {
+    text-align: center;
+    margin-top: 150px;
 }
 
 .before{
@@ -221,5 +226,15 @@ querySnapshot.forEach((doc) => {
 }
 .heading{
     text-align: center;
+}
+
+#uploadButton{
+  background-color: #dfe8cc;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-family: 'Barlow', sans-serif;  font-weight: 700;
+  cursor: pointer;
 }
 </style>

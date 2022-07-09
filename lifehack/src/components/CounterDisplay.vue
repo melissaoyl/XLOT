@@ -8,16 +8,15 @@
         <th>Unredeemed</th>
       </tr> -->
     <!-- </table> -->
-    <br /><br />
-    <h1 id="title">Sticker Counter</h1>
+    <h1 id="title">Sticker Collection</h1>
     <table id="counter_table" width="100%">
       <tr>
-        <th>Willy</th>
+        <th><b>W</b>illy</th>
         <th>Abi</th>
         <th>Sally</th>
         <th>Tye</th>
         <th>Erra</th>
-        <th>Unredeemed</th>
+        <th>Unredeemed Stickers</th>
       </tr>
       <tr>
         <td>
@@ -30,14 +29,14 @@
           <img style="width: 200px; height: 200px" src="@/assets/sally.png" />
         </td>
         <td>
-          <img style="width: 200px; height: 200px" src="@/assets/Tye.png" />
+          <img style="width: 200px; height: 200px" src="@/assets/tye.png" />
         </td>
         <td>
           <img style="width: 200px; height: 200px" src="@/assets/erra.png" />
         </td>
 
         <td>
-       <RandomNumber/>
+          <RandomNumber />
         </td>
       </tr>
     </table>
@@ -54,7 +53,6 @@ import { getFirestore, getDocs, collection } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Login from "../views/LoginPage.vue";
 import TopBanner from "./TopBanner.vue";
-
 import RandomNumber from "./RandomNumber.vue";
 
 const db = getFirestore(firebaseApp);
@@ -63,8 +61,8 @@ export default {
   components: {
     Login,
     TopBanner,
-    RandomNumber
-},
+    RandomNumber,
+  },
   data() {
     return {
       user: false,
@@ -98,7 +96,6 @@ export default {
           let e = counterdata.E;
           console.log("E :" + e);
           let u = counterdata.Unredeemed;
-
           map.push([w, a, s, t, e, u]);
         }
       });
@@ -140,7 +137,41 @@ export default {
       }
     });
   },
-};
+  
+  goToRedeem() {
+    this.$router.push("/profiledisplay");
+  },
+  };
 </script>
 
-<style></style>
+<style>
+
+#redeemBtn {
+  background-color: #5aa05d;
+  border: 2px solid rgb(73, 121, 68);;
+  color: white;
+  padding: 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 90px;
+  box-shadow: 5px 5px 5px #888888;
+}
+
+#title {
+  font-size: 40px;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+#unredeemed, #stickers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border:#5aa05d
+}
+</style>
