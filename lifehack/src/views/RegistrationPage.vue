@@ -83,15 +83,13 @@ export default {
         checkForm() {
             const auth = getAuth();
             var fullName = document.getElementById("fullName").value;
-            var mobileNum = document.getElementById("mobileNum").value;
             var emailAddress = document.getElementById("emailAddress").value;
             var userPassword = document.getElementById("setPassword").value;
             var repeatPassword = document.getElementById("repeatPassword").value;
             if (fullName == "") {
                 alert("Please enter your full name");
-            } else if (mobileNum == "") {
-                alert("Please enter your mobile number");
-            } else if (emailAddress == "") {
+            } 
+             else if (emailAddress == "") {
                 alert("Please enter your email address");
             } else if (userPassword == "") {
                 alert("Please enter your password");
@@ -108,7 +106,6 @@ export default {
                             // var uid = auth.currentUser.uid;
                             setDoc(doc(db, "users", emailAddress), {
                                 fullName: fullName,
-                                mobileNum: mobileNum,
                                 emailAddress: emailAddress,
                                 userPassword: userPassword,
                                 W:0,
