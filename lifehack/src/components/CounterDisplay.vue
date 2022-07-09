@@ -12,27 +12,27 @@
     <h1 id="title">Sticker Counter</h1>
     <table id="counter_table" width="100%">
       <tr>
-        <th>Will</th>
+        <th>Willy</th>
         <th>Abi</th>
-        <th>S</th>
+        <th>Sally</th>
         <th>Tye</th>
         <th>E</th>
       </tr>
       <tr>
         <td>
-          <img style="width: 200px; height: 200px" src="@/assets/Tye.png" />
+          <img style="width: 200px; height: 200px" src="@/assets/willy.png" />
         </td>
         <td>
-          <img style="width: 200px; height: 200px" src="@/assets/Tye.png" />
+          <img style="width: 200px; height: 200px" src="@/assets/abi.png" />
         </td>
         <td>
-          <img style="width: 200px; height: 200px" src="@/assets/Tye.png" />
+          <img style="width: 200px; height: 200px" src="@/assets/sally.png" />
         </td>
         <td>
-          <img style="width: 200px; height: 200px" src="@/assets/Tye.png" />
+          <img style="width: 200px; height: 200px" src="@/assets/tye.png" />
         </td>
         <td>
-          <img style="width: 200px; height: 200px" src="@/assets/Tye.png" />
+          <img style="width: 200px; height: 200px" src="@/assets/tye.png" />
         </td>
       </tr>
     </table>
