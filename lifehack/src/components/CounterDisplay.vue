@@ -2,44 +2,48 @@
   <div id="main" v-if="user">
     <TopBanner />
     <br /><br />
-    <h1 id="title">Unredeemed Counter</h1>
-    <table id="unredeemed_table" width="100%">
-      <tr>
-        <th>Unredeemed</th>
-      </tr>
-    </table>
+    <div id="unredeemed">
+      <h1 id="title">Unredeemed Counter</h1>
+      <table id="unredeemed_table" width="100%">
+        <tr>
+          <th>Unredeemed</th>
+        </tr>
+      </table>
+    </div>
     <br /><br />
-    <h1 id="title">Sticker Counter</h1>
-    <table id="counter_table" width="100%">
-      <tr>
-        <th>Willy</th>
-        <th>Abi</th>
-        <th>Sally</th>
-        <th>Tye</th>
-        <th>Erra</th>
-        <th>Unredeemed</th>
-      </tr>
-      <tr>
-        <td>
-          <img style="width: 200px; height: 200px" src="@/assets/willy.png" />
-        </td>
-        <td>
-          <img style="width: 200px; height: 200px" src="@/assets/abi.png" />
-        </td>
-        <td>
-          <img style="width: 200px; height: 200px" src="@/assets/sally.png" />
-        </td>
-        <td>
-          <img style="width: 200px; height: 200px" src="@/assets/tye.png" />
-        </td>
-        <td>
-          <img style="width: 200px; height: 200px" src="@/assets/erra.png" />
-        </td>
-        <td>
-          <img style="width: 200px; height: 200px" src="@/assets/tye.png" />
-        </td>
-      </tr>
-    </table>
+    <div id="stickers">
+      <h1 id="title">Sticker Counter</h1>
+      <table id="counter_table" width="100%">
+        <tr>
+          <th>Willy</th>
+          <th>Abi</th>
+          <th>Sally</th>
+          <th>Tye</th>
+          <th>Erra</th>
+          <th>Unredeemed</th>
+        </tr>
+        <tr>
+          <td>
+            <img style="width: 200px; height: 200px" src="@/assets/willy.png" />
+          </td>
+          <td>
+            <img style="width: 200px; height: 200px" src="@/assets/abi.png" />
+          </td>
+          <td>
+            <img style="width: 200px; height: 200px" src="@/assets/sally.png" />
+          </td>
+          <td>
+            <img style="width: 200px; height: 200px" src="@/assets/tye.png" />
+          </td>
+          <td>
+            <img style="width: 200px; height: 200px" src="@/assets/erra.png" />
+          </td>
+          <td>
+            <button id="redeemBtn" @click="goToRedeem()" v-if="user">Press To <br> Redeem</button>
+          </td>
+        </tr>
+      </table>
+    </div>
     <br /><br />
   </div>
   <div v-else>
@@ -94,7 +98,6 @@ export default {
           let e = counterdata.E;
           console.log("E :" + e);
           let u = counterdata.Unredeemed;
-
           map.push([w, a, s, t, e, u]);
         }
       });
@@ -136,7 +139,41 @@ export default {
       }
     });
   },
-};
+  
+  goToRedeem() {
+    this.$router.push("/profiledisplay");
+  },
+  };
 </script>
 
-<style></style>
+<style>
+
+#redeemBtn {
+  background-color: #5aa05d;
+  border: 2px solid rgb(73, 121, 68);;
+  color: white;
+  padding: 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 90px;
+  box-shadow: 5px 5px 5px #888888;
+}
+
+#title {
+  font-size: 40px;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+#unredeemed, #stickers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border:#5aa05d
+}
+</style>
