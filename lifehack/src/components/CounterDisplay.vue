@@ -2,48 +2,45 @@
   <div id="main" v-if="user">
     <TopBanner />
     <br /><br />
-    <div id="unredeemed">
-      <h1 id="title">Unredeemed Counter</h1>
-      <table id="unredeemed_table" width="100%">
-        <tr>
-          <th>Unredeemed</th>
-        </tr>
-      </table>
-    </div>
+    <!-- <h1 id="title">Unredeemed Counter</h1>
+    <table id="unredeemed_table" width="100%">
+      <tr>
+        <th>Unredeemed</th>
+      </tr> -->
+    <!-- </table> -->
     <br /><br />
-    <div id="stickers">
-      <h1 id="title">Sticker Counter</h1>
-      <table id="counter_table" width="100%">
-        <tr>
-          <th>Willy</th>
-          <th>Abi</th>
-          <th>Sally</th>
-          <th>Tye</th>
-          <th>Erra</th>
-          <th>Unredeemed</th>
-        </tr>
-        <tr>
-          <td>
-            <img style="width: 200px; height: 200px" src="@/assets/willy.png" />
-          </td>
-          <td>
-            <img style="width: 200px; height: 200px" src="@/assets/abi.png" />
-          </td>
-          <td>
-            <img style="width: 200px; height: 200px" src="@/assets/sally.png" />
-          </td>
-          <td>
-            <img style="width: 200px; height: 200px" src="@/assets/tye.png" />
-          </td>
-          <td>
-            <img style="width: 200px; height: 200px" src="@/assets/erra.png" />
-          </td>
-          <td>
-            <button id="redeemBtn" @click="goToRedeem()" v-if="user">Press To <br> Redeem</button>
-          </td>
-        </tr>
-      </table>
-    </div>
+    <h1 id="title">Sticker Counter</h1>
+    <table id="counter_table" width="100%">
+      <tr>
+        <th>Willy</th>
+        <th>Abi</th>
+        <th>Sally</th>
+        <th>Tye</th>
+        <th>Erra</th>
+        <th>Unredeemed</th>
+      </tr>
+      <tr>
+        <td>
+          <img style="width: 200px; height: 200px" src="@/assets/willy.png" />
+        </td>
+        <td>
+          <img style="width: 200px; height: 200px" src="@/assets/abi.png" />
+        </td>
+        <td>
+          <img style="width: 200px; height: 200px" src="@/assets/sally.png" />
+        </td>
+        <td>
+          <img style="width: 200px; height: 200px" src="@/assets/Tye.png" />
+        </td>
+        <td>
+          <img style="width: 200px; height: 200px" src="@/assets/erra.png" />
+        </td>
+
+        <td>
+       <RandomNumber/>
+        </td>
+      </tr>
+    </table>
     <br /><br />
   </div>
   <div v-else>
@@ -58,13 +55,16 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Login from "../views/LoginPage.vue";
 import TopBanner from "./TopBanner.vue";
 
+import RandomNumber from "./RandomNumber.vue";
+
 const db = getFirestore(firebaseApp);
 
 export default {
   components: {
     Login,
     TopBanner,
-  },
+    RandomNumber
+},
   data() {
     return {
       user: false,
