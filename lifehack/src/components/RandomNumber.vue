@@ -61,6 +61,8 @@
     />
     <button id="redeemBtn" @click="random_value">Click to try!</button>
   </div>
+  <h2 v-if="this.collect == 2">Click me to have me baby</h2>
+  <button v-if="this.collect == 1" @click="refresh">SUCK a cock</button>
 </template>
 
 <script>
@@ -86,6 +88,7 @@ export default {
   },
   data() {
     return {
+      collect: 0,
       value: 0,
       Unredeemed: 0,
       w: 0,
@@ -150,6 +153,7 @@ export default {
         this.value = 5;
         console.log("Erra is executed");
       }
+      this.collect = 2;
       //window.location.reload();
     },
     random_value() {
@@ -193,7 +197,9 @@ export default {
         .catch((error) => {
           console.log(error);
         });
+      this.collect = 1;
       alert("Please refresh the page to see the updates");
+
       //  this.$router.go()
     },
     updateInternal(i) {
@@ -208,6 +214,9 @@ export default {
       } else if (i == 5) {
         this.e += 1;
       }
+    },
+    refresh() {
+      this.$router.go();
     },
   },
   beforeMount() {
