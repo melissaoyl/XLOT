@@ -16,7 +16,7 @@
         <th>Abi</th>
         <th>Sally</th>
         <th>Tye</th>
-        <th>E</th>
+        <th>Erra</th>
         <th>Unredeemed</th>
       </tr>
       <tr>
@@ -31,6 +31,9 @@
         </td>
         <td>
           <img style="width: 200px; height: 200px" src="@/assets/Tye.png" />
+        </td>
+        <td>
+          <img style="width: 200px; height: 200px" src="@/assets/erra.png" />
         </td>
         <td>
           <img style="width: 200px; height: 200px" src="@/assets/Tye.png" />
@@ -102,30 +105,28 @@ export default {
         }
       });
 
+      var table = document.getElementById("counter_table");
+      var row = table.insertRow(ind);
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+      var cell3 = row.insertCell(2);
+      var cell4 = row.insertCell(3);
+      var cell5 = row.insertCell(4);
+      var cell6 = row.insertCell(5);
 
-          var table = document.getElementById("counter_table");
-          var row = table.insertRow(ind);
-          var cell1 = row.insertCell(0);
-          var cell2 = row.insertCell(1);
-          var cell3 = row.insertCell(2);
-          var cell4 = row.insertCell(3);
-          var cell5 = row.insertCell(4);
-          var cell6 = row.insertCell(5);
+      cell1.innerHTML = "<h1> " + String(map[0][0]) + "</h1>";
 
-          cell1.innerHTML = "<h1> " + String(map[0][0]) + "</h1>";
+      cell2.innerHTML = "<h1> " + String(map[0][1]) + "</h1>";
 
-          cell2.innerHTML = "<h1> " + String(map[0][1]) + "</h1>";
+      cell3.innerHTML = "<h1> " + String(map[0][2]) + "</h1>";
 
-          cell3.innerHTML = "<h1> " + String(map[0][2]) + "</h1>";
+      cell4.innerHTML = "<h1> " + String(map[0][3]) + "</h1>";
 
-          cell4.innerHTML = "<h1> " + String(map[0][3]) + "</h1>";
+      cell5.innerHTML = "<h1> " + String(map[0][4]) + "</h1>";
 
-          cell5.innerHTML = "<h1> " + String(map[0][4]) + "</h1>";
+      cell6.innerHTML = "<h1> " + String(map[0][5]) + "</h1>";
 
-           cell6.innerHTML = "<h1> " + String(map[0][5]) + "</h1>";
-
-          ind++;
-        
+      ind++;
     },
   },
   beforeMount() {
