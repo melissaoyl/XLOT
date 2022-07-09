@@ -92,6 +92,7 @@ export default {
       Unredeemed: 0,
       redeemableAmount: 0,
       state: 0,
+      amount_won: 0,
     };
   },
 
@@ -168,13 +169,12 @@ export default {
           console.log(error);
         });
 
-      alert("Please Refresh Page");
       this.state = 1;
       //  this.$router.go()
 
-      var amount_won = Math.floor(Math.random() * 100 + 1);
+      this.amount_won = Math.floor(Math.random() * 100 + 1);
       var redeemData = {
-        RedeemableAmount: this.redeemableAmount + amount_won,
+        RedeemableAmount: this.redeemableAmount + this.amount_won,
       };
       updateDoc(docRef, redeemData)
         .then(() => {
@@ -183,6 +183,8 @@ export default {
         .catch((error) => {
           console.log(error);
         });
+      alert("You have won $" + this.amount_won);
+      alert("Please Refresh Page");
     },
 
     async getRedeemableAmount() {
