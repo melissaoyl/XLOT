@@ -28,7 +28,7 @@
 
 <script>
 import firebaseApp from "../firebase.js";
-import { getFirestore, getDocs, collection } from "firebase/firestore";
+import { getFirestore, query,where, collection , getDocs} from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Login from "../views/LoginPage.vue";
 import TopBanner from "./TopBanner.vue";
@@ -38,7 +38,7 @@ const db = getFirestore(firebaseApp);
 export default {
   components: {
     Login,
-    TopBanner,
+    TopBanner
   },
   data() {
     return {
@@ -54,11 +54,45 @@ export default {
 
   methods: {
     async getCounterValues() {
-      let x = await getDocs(collection(db, "users"));
+        const todoRef = collection(db, 'users');
+        const x = query(todoRef, where("emailAddress", "==", this.user));
+        // let x = await getDocs(todoRef, this.user);
+        const map = []
+    const querySnapshot = await getDocs(x);
+querySnapshot.forEach((doc) => {
+    let y = doc.data()
+    
+    let a = y.A;
+    let w = y.W;
+    let s = y.S;
+    let t = y.T;
+    let e = y.E;
+    map.push([w,a,s,t,e]);
+  // doc.data() is never undefined for query doc snapshots
+    console.log(map)
+});
 
-      x.forEach((docs) => {
-        console.log(docs);
-      });
+
+    //     const map = [];
+    //     console.log(x)
+    //        x.forEach((docs) => {
+    //     let s = docs.data();
+    //     let before = s.W;
+    //     let after = s.A;
+    //     let date = s.S;
+
+    //     map.push([date, before, after]);
+    //     console.log(map)
+    //   });
+      }
+    //     let before = x.W;
+    //     let after = x.A;
+    //     let date = x.S;
+
+    //     map.push([date, before, after]);
+    //     console.log(map)
+    // }
+      
       //   let ind = 1;
       //   const map = [];
       //   x.forEach((docs) => {
@@ -86,7 +120,7 @@ export default {
       //       console.log("getCounter ran : " + ind);
       //     }
       //   }
-    },
+
   },
   beforeMount() {
     const auth = getAuth();
