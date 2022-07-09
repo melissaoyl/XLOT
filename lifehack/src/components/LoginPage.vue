@@ -9,6 +9,9 @@
       <input type="password" id="password" /><br />
       <input type="submit" value="Login" />
     </form>
+    <p>
+      <router-link id="registerRouter" to="/register"> Do not have an account? Register here! </router-link>
+    </p>
   </div>
 </template>
 
@@ -119,7 +122,7 @@ p {
   width: 225px;
   height: 40px;
   outline: none;
-  border: 1px solid #ccc;
+  border: 1px solid #ffffff;
   border-radius: 10px;
   box-sizing: border-box;
   text-indent: 10px;
@@ -127,7 +130,7 @@ p {
 }
 
 #page {
-  background-color: #fff8f8;
+  background-color: #ffffff;
   height: 100vh;
   margin: 0;
 }
