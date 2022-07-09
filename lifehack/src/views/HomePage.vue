@@ -57,8 +57,9 @@ export default {
         this.user = user;
         this.uid = user.uid;
         this.upcomingVisits = [];
-        // this.upcomingVisits = this.generateUpcomingVisits();
 
+        // this.upcomingVisits = this.generateUpcomingVisits();
+        
         const db = getFirestore(firebaseApp);
         const docRef = getDoc(doc(db, "users", this.uid));
         var vm = this;

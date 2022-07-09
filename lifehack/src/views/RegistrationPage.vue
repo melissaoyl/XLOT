@@ -114,8 +114,8 @@ export default {
                         .then(() => {
                             // Signed in
                             console.log("signed in successfully");
-                            var uid = auth.currentUser.uid;
-                            setDoc(doc(db, "users", uid), {
+                            // var uid = auth.currentUser.uid;
+                            setDoc(doc(db, "users", emailAddress), {
                                 fullName: fullName,
                                 mobileNum: mobileNum,
                                 emailAddress: emailAddress,
