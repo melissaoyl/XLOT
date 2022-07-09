@@ -4,11 +4,11 @@
   <div class="info">
 <h2> In 2019, Singapore generated around 744 million kg of
 food waste. In a bid to reduce this food waste we launched XLOT to help to raise awareness and help to cultivate the habit of reducing our own food wastage. Our team felt that 
-reducing our personal food wastage is one of the best ways in which we could individually impact our gloabl effort towards a greener Earth.</h2>
+reducing our personal food wastage is one of the best ways in which we could individually impact our global effort towards a greener Earth.</h2>
 
 <h2>What is XLOT? XLOT is an application we created which helps to keep ourselves accountable for finishing our food. XLOT implements a simple mechanism which requires the participant to upload 
     their own plates/bowls at the beginning of their meal and at the end of the meal to keep themselves accountable to wasting as little food as possible during each meal. As a reward, with each upload,
-    participants stand a chance to redeem one of 5 stickers, Willy, Abi, Sally, Tye and Era (WASTE). Whenever a user successfully collects at least one of each sticker, the participate would be eligible for a 
+    participants stand a chance to redeem one of 5 stickers, Willy, Abi, Sally, Tye and Era (WASTE). Whenever a user successfully collects at least one of each sticker, the participants would be eligible for a 
     very generous cash reward, redeemable via Paynow or Paylah!
 </h2>
 <table id="counter_table" width="100%">
@@ -50,9 +50,9 @@ reducing our personal food wastage is one of the best ways in which we could ind
       <div class="container">
         <h2>Thomas Tan</h2>
         <p class="title">Year 3 BZA</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <a href="https://www.thomastanzy.com" >Website</a><br>
         <a href="http://linkedin.com/in/thomas-t-317010b0" >LinkedIn </a> 
-        <a href="https://www.thomastanzy.com" >Website</a>
+
     
       </div>
     </div>
@@ -63,8 +63,7 @@ reducing our personal food wastage is one of the best ways in which we could ind
       <img src="@/assets/brian.jpg"  alt="Brian" style="width:100%">
       <div class="container">
         <h2>Brian Lim</h2>
-        <p class="title">Year 3 IS</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p class="title">Year 3 IS</p> <br>
         <a href="http://linkedin.com/in/limyuchaobrian" >LinkedIn </a>
       </div>
     </div>
@@ -75,8 +74,7 @@ reducing our personal food wastage is one of the best ways in which we could ind
       <img src="@/assets/mel.jpg" alt="Mel" style="width:100%">
       <div class="container">
         <h2>Melissa Ong</h2>
-        <p class="title">Year 3 BZA</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p class="title">Year 3 BZA</p> <br>
         <a href="http://linkedin.com/in/melissaoyl" >LinkedIn </a>
       </div>
     </div>
@@ -87,8 +85,7 @@ reducing our personal food wastage is one of the best ways in which we could ind
       <img src="@/assets/qingyi.jpg"  alt="Qy" style="width:100%">
       <div class="container">
         <h2>Xiang Qingyi</h2>
-        <p class="title">Year 3 IS</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p class="title">Year 3 IS</p> <br>
         <a href="https://www.linkedin.com/in/qingyi-xiang" >LinkedIn </a>
       </div>
     </div>

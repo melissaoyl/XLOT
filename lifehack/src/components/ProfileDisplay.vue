@@ -57,9 +57,9 @@ export default {
         if (a[0] == b[0]) {
           return 1;
         } else if (a[0] < b[0]) {
-          return -11;
-        } else {
           return 1;
+        } else {
+          return -1;
         }
       });
       for (let i in map) {
