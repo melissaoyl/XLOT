@@ -12,11 +12,28 @@
     <h1 id="title">Sticker Counter</h1>
     <table id="counter_table" width="100%">
       <tr>
-        <th>W</th>
-        <th>A</th>
+        <th>Will</th>
+        <th>Abi</th>
         <th>S</th>
-        <th>T</th>
+        <th>Tye</th>
         <th>E</th>
+      </tr>
+      <tr>
+        <td>
+          <img style="width: 200px; height: 200px" src="@/assets/Tye.png" />
+        </td>
+        <td>
+          <img style="width: 200px; height: 200px" src="@/assets/Tye.png" />
+        </td>
+        <td>
+          <img style="width: 200px; height: 200px" src="@/assets/Tye.png" />
+        </td>
+        <td>
+          <img style="width: 200px; height: 200px" src="@/assets/Tye.png" />
+        </td>
+        <td>
+          <img style="width: 200px; height: 200px" src="@/assets/Tye.png" />
+        </td>
       </tr>
     </table>
     <br /><br />
@@ -28,7 +45,7 @@
 
 <script>
 import firebaseApp from "../firebase.js";
-import { getFirestore, query,where, collection , getDocs} from "firebase/firestore";
+import { getFirestore, getDocs, collection } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Login from "../views/LoginPage.vue";
 import TopBanner from "./TopBanner.vue";
@@ -38,7 +55,7 @@ const db = getFirestore(firebaseApp);
 export default {
   components: {
     Login,
-    TopBanner
+    TopBanner,
   },
   data() {
     return {
@@ -54,73 +71,53 @@ export default {
 
   methods: {
     async getCounterValues() {
-        const todoRef = collection(db, 'users');
-        const x = query(todoRef, where("emailAddress", "==", this.user));
-        // let x = await getDocs(todoRef, this.user);
-        const map = []
-    const querySnapshot = await getDocs(x);
-querySnapshot.forEach((doc) => {
-    let y = doc.data()
-    
-    let a = y.A;
-    let w = y.W;
-    let s = y.S;
-    let t = y.T;
-    let e = y.E;
-    map.push([w,a,s,t,e]);
-  // doc.data() is never undefined for query doc snapshots
-    console.log(map)
-});
+      const querySnapshot = await getDocs(collection(db, "users"));
 
+      let ind = 1;
+      const map = [];
+      querySnapshot.forEach((docs) => {
+        if (docs.data().emailAddress == this.user) {
+          console.log(docs.id, " => ", docs.data());
+          let counterdata = docs.data();
+          let w = counterdata.W;
+          console.log("W :" + w);
+          let a = counterdata.A;
+          console.log("A :" + a);
+          let s = counterdata.S;
+          console.log("S :" + s);
+          let t = counterdata.T;
+          console.log("T :" + t);
+          let e = counterdata.E;
+          console.log("E :" + e);
 
-    //     const map = [];
-    //     console.log(x)
-    //        x.forEach((docs) => {
-    //     let s = docs.data();
-    //     let before = s.W;
-    //     let after = s.A;
-    //     let date = s.S;
+          map.push([w, a, s, t, e]);
+        }
+      });
 
-    //     map.push([date, before, after]);
-    //     console.log(map)
-    //   });
+      for (let i in map) {
+        if (map[i][0] != null) {
+          var table = document.getElementById("counter_table");
+          var row = table.insertRow(ind);
+          var cell1 = row.insertCell(0);
+          var cell2 = row.insertCell(1);
+          var cell3 = row.insertCell(2);
+          var cell4 = row.insertCell(3);
+          var cell5 = row.insertCell(4);
+
+          cell1.innerHTML = "<h1> " + String(map[i][0]) + "</h1>";
+
+          cell2.innerHTML = "<h1> " + String(map[i][1]) + "</h1>";
+
+          cell3.innerHTML = "<h1> " + String(map[i][2]) + "</h1>";
+
+          cell4.innerHTML = "<h1> " + String(map[i][3]) + "</h1>";
+
+          cell5.innerHTML = "<h1> " + String(map[i][4]) + "</h1>";
+
+          ind++;
+        }
       }
-    //     let before = x.W;
-    //     let after = x.A;
-    //     let date = x.S;
-
-    //     map.push([date, before, after]);
-    //     console.log(map)
-    // }
-      
-      //   let ind = 1;
-      //   const map = [];
-      //   x.forEach((docs) => {
-      //     let counterdata = docs.data();
-      //     let w = counterdata.W;
-      //     let a = counterdata.A;
-      //     let s = counterdata.S;
-      //     let t = counterdata.T;
-      //     let e = counterdata.E;
-
-      //     map.push([w, a, s, t, e]);
-      //   });
-
-      //   for (let i in map) {
-      //     if (map[i][0] != null) {
-      //       var table = document.getElementById("counter_table");
-      //       var row = table.insertRow(ind);
-      //       row.insertCell(0);
-      //       row.insertCell(1);
-      //       row.insertCell(2);
-      //       row.insertCell(3);
-      //       row.insertCell(4);
-
-      //       ind++;
-      //       console.log("getCounter ran : " + ind);
-      //     }
-      //   }
-
+    },
   },
   beforeMount() {
     const auth = getAuth();
