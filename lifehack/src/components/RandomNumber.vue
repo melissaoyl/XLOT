@@ -1,24 +1,23 @@
-<template>
-       
+<template> 
 
-<div v-if="this.value==1">
-   <img style="width: 200px; height: 200px" src="@/assets/willy.png"  @click="updateInternal(1);updateFB()"/>
-</div>
-<div v-else-if="this.value==2">
-            <img style="width: 200px; height: 200px" src="@/assets/abi.png" @click="updateInternal(2);updateFB()" />
-</div>
-<div v-else-if="this.value==3">
-       <img style="width: 200px; height: 200px" src="@/assets/sally.png"  @click="updateInternal(3);updateFB()"/>
-</div>
-<div v-else-if="this.value==4">
-         <img style="width: 200px; height: 200px" src="@/assets/Tye.png"  @click="updateInternal(4);updateFB()"/>
-</div>
-<div v-else-if="this.value==5">
-     <img style="width: 200px; height: 200px" src="@/assets/Tye.png"  @click="updateInternal(5);updateFB()"/>
-</div>
-<div v-else>
-  <button id ="redeemBtn" @click="random_value">Click to try!</button> 
-</div>
+  <div v-if="this.value==1">
+    <img style="width: 200px; height: 200px" src="@/assets/willy.png"  @click="updateInternal(1);updateFB()"/>
+  </div>
+  <div v-else-if="this.value==2">
+      <img style="width: 200px; height: 200px" src="@/assets/abi.png" @click="updateInternal(2);updateFB()" />
+  </div>
+  <div v-else-if="this.value==3">
+      <img style="width: 200px; height: 200px" src="@/assets/sally.png"  @click="updateInternal(3);updateFB()"/>
+  </div>
+  <div v-else-if="this.value==4">
+      <img style="width: 200px; height: 200px" src="@/assets/tye.png"  @click="updateInternal(4);updateFB()"/>
+  </div>
+  <div v-else-if="this.value==5">
+      <img style="width: 200px; height: 200px" src="@/assets/erra.png"  @click="updateInternal(5);updateFB()"/>
+  </div>
+  <div v-else>
+    <button id ="redeemBtn" @click="random_value">Click to <br> redeem!</button> 
+  </div>
   
 </template>
 
@@ -51,7 +50,7 @@ export default {
             this.value = Math.floor((Math.random() * 5) + 1)
             }
         },
-         async get() {
+        async get() {
         const todoRef = collection(db, 'users');
         const x = query(todoRef, where("emailAddress", "==", this.user));
     const querySnapshot = await getDocs(x);
@@ -107,7 +106,7 @@ alert("Please refresh the page to see the updates")
 
       }
     },
-     beforeMount() {
+    beforeMount() {
     const auth = getAuth();
     
     onAuthStateChanged(auth, (user) => {
@@ -122,7 +121,7 @@ alert("Please refresh the page to see the updates")
         this.user = false
       }
     })
-     } 
+    } 
 
 }
 </script>

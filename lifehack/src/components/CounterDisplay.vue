@@ -9,15 +9,15 @@
       </tr> -->
     <!-- </table> -->
     <br /><br />
-    <h1 id="title">Sticker Counter</h1>
+    <h1 id="title">Sticker Collection</h1>
     <table id="counter_table" width="100%">
       <tr>
-        <th>Willy</th>
+        <th><b>W</b>illy</th>
         <th>Abi</th>
         <th>Sally</th>
         <th>Tye</th>
         <th>Erra</th>
-        <th>Unredeemed</th>
+        <th>Unredeemed Stickers</th>
       </tr>
       <tr>
         <td>
@@ -30,14 +30,14 @@
           <img style="width: 200px; height: 200px" src="@/assets/sally.png" />
         </td>
         <td>
-          <img style="width: 200px; height: 200px" src="@/assets/Tye.png" />
+          <img style="width: 200px; height: 200px" src="@/assets/tye.png" />
         </td>
         <td>
           <img style="width: 200px; height: 200px" src="@/assets/erra.png" />
         </td>
 
         <td>
-       <RandomNumber/>
+        <RandomNumber/>
         </td>
       </tr>
     </table>

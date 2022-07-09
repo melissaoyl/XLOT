@@ -43,6 +43,13 @@
                     />
                 </div>
                 <br />
+            <div class="tnc">
+                <input type="checkbox" 
+                id="terms" required=""/>
+                I agree to the terms and conditions
+            </div>
+            <br>
+
             <div class="signUp">
                 <button
                     id="signUpButton"
@@ -86,10 +93,10 @@ export default {
             var emailAddress = document.getElementById("emailAddress").value;
             var userPassword = document.getElementById("setPassword").value;
             var repeatPassword = document.getElementById("repeatPassword").value;
+            var terms = document.getElementById("terms").checked;
             if (fullName == "") {
                 alert("Please enter your full name");
-            } 
-             else if (emailAddress == "") {
+            } else if (emailAddress == "") {
                 alert("Please enter your email address");
             } else if (userPassword == "") {
                 alert("Please enter your password");
@@ -97,6 +104,8 @@ export default {
                 alert("Please enter your password again");
             } else if (userPassword != repeatPassword) {
                 alert("Passwords do not match");
+            } else if (terms == false) {
+                alert("Please agree to the terms and conditions");
             } else {
                 try {
                     createUserWithEmailAndPassword(auth, emailAddress, userPassword)
@@ -201,4 +210,8 @@ label {
     font-family: 'Ubuntu', sans-serif;
 }
 
+.tnc {
+    width: 400px;
+    margin: auto;
+}
 </style>
