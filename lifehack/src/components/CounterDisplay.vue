@@ -39,17 +39,21 @@
           <RandomNumber />
         </td>
       </tr>
+     <button v-if="this.a>0 && this.w>0 && this.t >0 && this.e >0 && this.s >0  " @click="redeem"> Redeem Cash Lucky Draw! </button>
     </table>
     <br /><br />
+
+
   </div>
   <div v-else>
     <Login route="" />
   </div>
+
 </template>
 
 <script>
 import firebaseApp from "../firebase.js";
-import { getFirestore, getDocs, collection } from "firebase/firestore";
+import { getFirestore, getDocs, collection, doc, updateDoc } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Login from "../views/LoginPage.vue";
 import TopBanner from "./TopBanner.vue";
@@ -71,7 +75,7 @@ export default {
       s: 0,
       t: 0,
       e: 0,
-      unredeemed: 0,
+      Unredeemed: 0,
     };
   },
 
@@ -97,6 +101,13 @@ export default {
           console.log("E :" + e);
           let u = counterdata.Unredeemed;
           map.push([w, a, s, t, e, u]);
+          this.a = a
+          this.w =w
+          this.t = t
+          this.e =e 
+          this.s = s
+          this.Unredeemed = u
+
         }
       });
 
@@ -123,6 +134,32 @@ export default {
 
       ind++;
     },
+    redeem(){
+
+      var data = {
+        Unredeemed: this.Unredeemed ,
+        A: this.a -1 ,
+        W: this.w - 1,
+        S: this.s -1 ,
+        T: this.t -1 ,
+        E: this.e -1,
+      };
+
+      const docRef = doc(db, "users", String(this.user));
+      updateDoc(docRef, data)
+        .then(() => {
+          console.log("Value of an Existing Document Field has been updated");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+      alert("You will now be redirected to the payment page")
+
+      //  this.$router.go()
+
+        
+    }
   },
   beforeMount() {
     const auth = getAuth();

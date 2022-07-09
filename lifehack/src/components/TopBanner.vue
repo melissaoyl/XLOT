@@ -2,7 +2,7 @@
     <div id="main">
         <div id="header">
         <img id="logo" src="@/assets/logo.png" alt="logo" />
-        <h2 id="welcome">Welcome Back {{ this.user }} !</h2>
+        <h2 id="welcome">Welcome Back {{ this.name }} !</h2>
         <button id="profileBtn" type="button" @click="goToProfile()">
             Your Profile
         </button>
@@ -21,8 +21,13 @@
 </template>
 
 <script>
+import firebaseApp from "../firebase.js";
+import { getFirestore } from "firebase/firestore";
+import { getDocs, collection, where, query} from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import LogOut from "./LogOut.vue";
+const db = getFirestore(firebaseApp);
+
 
 export default {
   name: "TopBanner",
@@ -33,6 +38,7 @@ export default {
   data() {
     return {
       user: false,
+      name: ""
     };
   },
 
@@ -43,6 +49,7 @@ export default {
         console.log("this is true");
         this.user = auth.currentUser.email;
         console.log(this.user);
+        this.get()
       } else {
         this.user = false;
       }
@@ -57,6 +64,16 @@ export default {
     goToUpload() {
       this.$router.push("/photoupload");
     },
+    async get() {
+        const todoRef = collection(db, 'users');
+        const x = query(todoRef, where("emailAddress", "==", this.user));
+    const querySnapshot = await getDocs(x);
+querySnapshot.forEach((doc) => {
+    let y = doc.data()
+    let a = y.fullName;
+    this.name = a
+});
+      },
   },
 };
 </script>
