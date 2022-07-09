@@ -17,8 +17,12 @@
         <th>S</th>
         <th>Tye</th>
         <th>E</th>
+        <th>Unredeemed</th>
       </tr>
       <tr>
+        <td>
+          <img style="width: 200px; height: 200px" src="@/assets/Tye.png" />
+        </td>
         <td>
           <img style="width: 200px; height: 200px" src="@/assets/Tye.png" />
         </td>
@@ -89,13 +93,13 @@ export default {
           console.log("T :" + t);
           let e = counterdata.E;
           console.log("E :" + e);
+          let u = counterdata.Unredeemed;
 
-          map.push([w, a, s, t, e]);
+          map.push([w, a, s, t, e, u]);
         }
       });
 
-      for (let i in map) {
-        if (map[i][0] != null) {
+
           var table = document.getElementById("counter_table");
           var row = table.insertRow(ind);
           var cell1 = row.insertCell(0);
@@ -103,20 +107,22 @@ export default {
           var cell3 = row.insertCell(2);
           var cell4 = row.insertCell(3);
           var cell5 = row.insertCell(4);
+          var cell6 = row.insertCell(5);
 
-          cell1.innerHTML = "<h1> " + String(map[i][0]) + "</h1>";
+          cell1.innerHTML = "<h1> " + String(map[0][0]) + "</h1>";
 
-          cell2.innerHTML = "<h1> " + String(map[i][1]) + "</h1>";
+          cell2.innerHTML = "<h1> " + String(map[0][1]) + "</h1>";
 
-          cell3.innerHTML = "<h1> " + String(map[i][2]) + "</h1>";
+          cell3.innerHTML = "<h1> " + String(map[0][2]) + "</h1>";
 
-          cell4.innerHTML = "<h1> " + String(map[i][3]) + "</h1>";
+          cell4.innerHTML = "<h1> " + String(map[0][3]) + "</h1>";
 
-          cell5.innerHTML = "<h1> " + String(map[i][4]) + "</h1>";
+          cell5.innerHTML = "<h1> " + String(map[0][4]) + "</h1>";
+
+           cell6.innerHTML = "<h1> " + String(map[0][5]) + "</h1>";
 
           ind++;
-        }
-      }
+        
     },
   },
   beforeMount() {
