@@ -2,7 +2,6 @@
   <div id="main" v-if="user">
     <TopBanner />
     <br /><br />
-
     <CounterDisplay />
     <h1 id="title">Upload History</h1>
     <table id="table" width="100%">
