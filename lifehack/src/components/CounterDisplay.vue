@@ -8,7 +8,6 @@
         <th>Unredeemed</th>
       </tr> -->
     <!-- </table> -->
-    <br /><br />
     <h1 id="title">Sticker Collection</h1>
     <table id="counter_table" width="100%">
       <tr>
@@ -37,7 +36,7 @@
         </td>
 
         <td>
-        <RandomNumber/>
+          <RandomNumber />
         </td>
       </tr>
     </table>
@@ -54,7 +53,6 @@ import { getFirestore, getDocs, collection } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Login from "../views/LoginPage.vue";
 import TopBanner from "./TopBanner.vue";
-
 import RandomNumber from "./RandomNumber.vue";
 
 const db = getFirestore(firebaseApp);
@@ -63,8 +61,8 @@ export default {
   components: {
     Login,
     TopBanner,
-    RandomNumber
-},
+    RandomNumber,
+  },
   data() {
     return {
       user: false,
