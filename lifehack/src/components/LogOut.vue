@@ -38,7 +38,7 @@ export default {
     @import url("https://fonts.googleapis.com/css2?family=Barlow&display=swap");
 
     #btn {
-        background-color: #446A46;
+        background-color: #7baf7d;
         border: none;
         text-decoration: underline;
         cursor: pointer;

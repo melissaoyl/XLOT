@@ -1,11 +1,14 @@
 <template>
-  <div id="main">
-    <div id="header">
-      <h2 id="welcome">Welcome Back {{ this.user }} !</h2>
-      <button id="profileBtn" type="button" @click="goToProfile()">
-        Profile
-      </button>
-      <button id="uploadBtn" type="button" @click="goToUpload()">Upload</button>
+    <div id="main">
+        <div id ="header">
+            <img id="logo" src="@/assets/logo.png" alt="logo" />
+            <h2 id="welcome">Welcome Back {{this.user}} !</h2>
+            <button id="profileBtn" type=button @click="goToProfile()">Your Profile</button>
+            <button id="uploadBtn" type=button @click="goToUpload()">Upload Your Plate</button>
+        </div>
+        <div id ="logoutButton">
+            <LogOut />
+        </div>
     </div>
     <div id="logoutButton">
       <LogOut />
@@ -64,14 +67,14 @@ h2 {
 }
 
 #main {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  padding: 0;
-  border-bottom: 3px darkgrey solid;
-  box-shadow: 0px 0px 2px 0px;
-  background-color: #446a46;
+    position:fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 0;
+    border-bottom: 3px darkgrey solid;
+    box-shadow: 0px 0px 2px 0px;
+    background-color: #7baf7d;
 }
 
 #welcome {
@@ -96,26 +99,31 @@ h2 {
   }
 }
 
-#profileBtn,
-#uploadBtn {
-  background-color: #446a46;
-  border: none;
-  border-radius: 10px;
-  padding: 7px;
-  padding-left: 40px;
-  padding-right: 25px;
-  cursor: pointer;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  color: white;
+#profileBtn , #uploadBtn {
+    background-color: #7baf7d;
+    border: none;
+    border-radius: 10px;
+    padding: 7px;
+    padding-left: 40px;
+    padding-right: 25px;
+    cursor: pointer;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    text-decoration: underline;
 }
 
 #logoutButton {
-  position: fixed;
-  right: 1%;
-  top: 0;
-  padding: 10px;
-  background-color: #446a46;
+    position: fixed;
+    right: 1%;
+    top: 0;
+    padding: 10px;
+    background-color: #7baf7d;
 }
+
+#logo {
+    width: 100px;
+    margin-left: 20px;
+    }
 </style>
