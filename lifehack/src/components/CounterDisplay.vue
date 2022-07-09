@@ -1,13 +1,8 @@
 <template>
   <div id="main" v-if="user">
     <TopBanner />
-    <br /><br />
-    <!-- <h1 id="title">Unredeemed Counter</h1>
-    <table id="unredeemed_table" width="100%">
-      <tr>
-        <th>Unredeemed</th>
-      </tr> -->
-    <!-- </table> -->
+    <h1 id="title">Redeemable Amount</h1>
+    <h3>${{ this.redeemableAmount }}</h3>
     <h1 id="title">Sticker Collection</h1>
     <table id="counter_table" width="100%">
       <tr>
@@ -39,21 +34,40 @@
           <RandomNumber />
         </td>
       </tr>
-     <button v-if="this.a>0 && this.w>0 && this.t >0 && this.e >0 && this.s >0  " @click="redeem"> Redeem Cash Lucky Draw! </button>
+      <button
+        id="redeemBtn"
+        v-if="
+          this.a > 0 &&
+          this.w > 0 &&
+          this.t > 0 &&
+          this.e > 0 &&
+          this.s > 0 &&
+          this.state == 0
+        "
+        @click="redeem"
+      >
+        Redeem Cash Lucky Draw!
+      </button>
+      <button id="redeemBtn" v-if="this.state == 1" @click="refresh">
+        Refresh Page
+      </button>
     </table>
     <br /><br />
-
-
   </div>
   <div v-else>
     <Login route="" />
   </div>
-
 </template>
 
 <script>
 import firebaseApp from "../firebase.js";
-import { getFirestore, getDocs, collection, doc, updateDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  getDocs,
+  collection,
+  doc,
+  updateDoc,
+} from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Login from "../views/LoginPage.vue";
 import TopBanner from "./TopBanner.vue";
@@ -76,6 +90,8 @@ export default {
       t: 0,
       e: 0,
       Unredeemed: 0,
+      redeemableAmount: 0,
+      state: 0,
     };
   },
 
@@ -101,13 +117,12 @@ export default {
           console.log("E :" + e);
           let u = counterdata.Unredeemed;
           map.push([w, a, s, t, e, u]);
-          this.a = a
-          this.w =w
-          this.t = t
-          this.e =e 
-          this.s = s
-          this.Unredeemed = u
-
+          this.a = a;
+          this.w = w;
+          this.t = t;
+          this.e = e;
+          this.s = s;
+          this.Unredeemed = u;
         }
       });
 
@@ -134,15 +149,14 @@ export default {
 
       ind++;
     },
-    redeem(){
-
+    redeem() {
       var data = {
-        Unredeemed: this.Unredeemed ,
-        A: this.a -1 ,
+        Unredeemed: this.Unredeemed,
+        A: this.a - 1,
         W: this.w - 1,
-        S: this.s -1 ,
-        T: this.t -1 ,
-        E: this.e -1,
+        S: this.s - 1,
+        T: this.t - 1,
+        E: this.e - 1,
       };
 
       const docRef = doc(db, "users", String(this.user));
@@ -154,12 +168,37 @@ export default {
           console.log(error);
         });
 
-      alert("You will now be redirected to the payment page")
-
+      alert("Please Refresh Page");
+      this.state = 1;
       //  this.$router.go()
 
-        
-    }
+      var amount_won = Math.floor(Math.random() * 100 + 1);
+      var redeemData = {
+        RedeemableAmount: this.redeemableAmount + amount_won,
+      };
+      updateDoc(docRef, redeemData)
+        .then(() => {
+          console.log("Value of an Existing Document Field has been updated");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+
+    async getRedeemableAmount() {
+      const querySnapshot = await getDocs(collection(db, "users"));
+
+      querySnapshot.forEach((docs) => {
+        if (docs.data().emailAddress == this.user) {
+          console.log(docs.id, " => ", docs.data());
+          let data = docs.data();
+          this.redeemableAmount = data.RedeemableAmount;
+        }
+      });
+    },
+    refresh() {
+      this.$router.go();
+    },
   },
   beforeMount() {
     const auth = getAuth();
@@ -169,23 +208,23 @@ export default {
         this.user = auth.currentUser.email;
         console.log(this.user);
         this.getCounterValues();
+        this.getRedeemableAmount();
       } else {
         this.user = false;
       }
     });
   },
-  
+
   goToRedeem() {
     this.$router.push("/profiledisplay");
   },
-  };
+};
 </script>
 
 <style>
-
 #redeemBtn {
   background-color: #5aa05d;
-  border: 2px solid rgb(73, 121, 68);;
+  border: 2px solid rgb(73, 121, 68);
   color: white;
   padding: 30px;
   text-align: center;
@@ -205,10 +244,11 @@ export default {
   text-decoration: underline;
 }
 
-#unredeemed, #stickers {
+#unredeemed,
+#stickers {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border:#5aa05d
+  border: #5aa05d;
 }
 </style>
