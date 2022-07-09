@@ -1,7 +1,6 @@
 <template>
   <div id="main" v-if="user">
     <TopBanner />
-    <br /><br />
     <h1 id="title">Redeemable Amount</h1>
     <h3>${{ this.redeemableAmount }}</h3>
     <h1 id="title">Sticker Collection</h1>
