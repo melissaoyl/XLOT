@@ -3,7 +3,7 @@
   <div v-if="user"> 
   <TopBanner/>
   <form @submit.prevent > 
-        <h3 class = "heading"> Please ensure that the photos are in JPEG format !</h3>
+    <h3 class = "heading"> Please ensure that the photos are in JPEG format !</h3>
   <div class = "before">
 
     <div
@@ -142,6 +142,10 @@ export default {
     margin: 0 auto 30px;
     background-size: cover;
     background-position: center center;
+}
+
+.heading {
+  margin-top: 200px;
 }
 
 .before{

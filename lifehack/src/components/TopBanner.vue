@@ -1,41 +1,57 @@
 <template>
     <div id="main">
-        <!-- <a href = "/home" > <img id ="logo" src="../assets/eduLogo.png" alt="EDU'skool logo" > </a> -->
-        <h2 id="welcome">Welcome Back {{this.user}} </h2>
-        <a id="profile" href="./profile">Profile</a>
-        <a id ="upload" href="./PhotoUpload">Upload</a>
-        <!-- <a id="logout" href="./" @click="handleLogout">Logout</a> -->
-        <!-- <a id="profile" href="./profile">Profile</a> -->
-    </div><br><br>
+        <div id ="header">
+            <h2 id="welcome">Welcome Back {{this.user}} !</h2>
+            <button id="profileBtn" type=button @click="goToProfile()">Profile</button>
+            <button id="uploadBtn" type=button @click="goToUpload()">Upload</button>
+        </div>
+        <div id ="logoutButton">
+            <LogOut />
+        </div>
+    </div>
+    <br>
 </template>
 
 <script>
-
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-
-
+import LogOut from "./LogOut.vue";
 
 export default {
-
-  data() {
-      return {
-        user: false
-      };
+    name: "TopBanner",
+    components: {
+        LogOut,
     },
-             beforeMount() {
+
+    data() {
+        return {
+        user: false
+    };
+    },
+
+    beforeMount() {
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
-      if (user) {
+    if (user) {
         console.log("this is true");
         this.user = auth.currentUser.email;
         console.log(this.user)
         this.getScores()
 
-      }
-      else{
+    }
+    else{
         this.user = false
-      }
+    }
     })
+    },
+
+    methods: {
+        goToProfile() {
+            this.$router.push("/profilepage");
+        },
+
+        goToUpload() {
+            this.$router.push("/photoupload");
+        },
     }
 }
 
@@ -57,24 +73,11 @@ h2 {
     padding: 0;
     border-bottom: 3px darkgrey solid;
     box-shadow: 0px 0px 2px 0px;
-    background-color: #00bcd4;
+    background-color: #446A46;
 }
 
 #welcome {
     display:inline-block;
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-}
-#help {
-    float:right;
-    position: relative;
-    top: 20px;
-    right: 200px;
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-}
-#logout{
-    float:right;
-    position: relative;
-    top: 20px;
     font-family: Avenir, Helvetica, Arial, sans-serif;
 }
 
@@ -83,36 +86,9 @@ h2 {
         display:inline-block;
         font-family: Avenir, Helvetica, Arial, sans-serif;
     }
-    #help {
-        float:right;
-        font-family: Avenir, Helvetica, Arial, sans-serif;
-        visibility: hidden;
-    }
-    #logout{
-        float:right;
-        font-family: Avenir, Helvetica, Arial, sans-serif;
-        visibility: hidden;
-    }
 }
-
-
-a {
-    color: white;
-    font-size: 24px;
-}
-
-a:hover {
-    color: #fb8332;
-}
-
 
 @media all and (max-width: 900px) {
-    #courses {
-        display:inline-block;
-        font-family: Avenir, Helvetica, Arial, sans-serif;
-        /* display:none;
-        visibility: hidden; */
-    }
     #welcome {
         font-family: Avenir, Helvetica, Arial, sans-serif;
         display:inline-block;
@@ -120,12 +96,28 @@ a:hover {
         /* display:none;
         visibility: hidden; */
     }
-    #help {
-        display:inline-block;
-        font-family: Avenir, Helvetica, Arial, sans-serif;
-        /* display:none;
-        visibility: hidden; */
-    }
+}
+
+#profileBtn , #uploadBtn {
+    background-color: #446A46;
+    border: none;
+    border-radius: 10px;
+    padding: 7px;
+    padding-left: 40px;
+    padding-right: 25px;
+    cursor: pointer;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+}
+
+#logoutButton {
+    position: fixed;
+    right: 1%;
+    top: 0;
+    padding: 10px;
+    background-color: #446A46;
 }
 
 </style>

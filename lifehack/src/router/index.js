@@ -17,7 +17,7 @@ const routes = [
         name: "LoginPage",
         component: LoginPage,
     },{
-        path: "/PhotoUpload",
+        path: "/photoupload",
         name: "PhotoUpload",
         component: PhotoUpload
     },{
@@ -30,7 +30,7 @@ const routes = [
         component: ProfilePage
     },
     {
-        path: "/Profile",
+        path: "/profiledisplay",
         name: "ProfileDisplay",
         component: ProfileDisplay
     }
