@@ -44,9 +44,13 @@
                 </div>
                 <br />
             <div class="tnc">
+                <div id = "honorcode">
+                    <p> hihi pls honor the code </p>
+                </div>
+                <br />
                 <input type="checkbox" 
                 id="terms" required=""/>
-                I agree to the terms and conditions
+                I agree to honor the code
             </div>
             <br>
 
@@ -213,5 +217,10 @@ label {
 .tnc {
     width: 400px;
     margin: auto;
+}
+
+#honorcode {
+    border: 1px solid #436c50;
+    border-radius: 5px;
 }
 </style>

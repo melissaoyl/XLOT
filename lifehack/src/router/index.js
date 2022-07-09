@@ -12,7 +12,7 @@ const routes = [
         component: RegistrationPage,
     },
     {
-        path: "/",
+        path: "/login",
         name: "LoginPage",
         component: LoginPage,
     },{
@@ -20,7 +20,7 @@ const routes = [
         name: "PhotoUpload",
         component: PhotoUpload
     },{
-        path: "/home",
+        path: "/",
         name: "HomePage",
         component: HomePage
     },

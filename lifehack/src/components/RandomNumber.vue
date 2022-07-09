@@ -59,10 +59,10 @@
       :imgParams="logo"
       @click="random_value"
     />
-    <button id="redeemBtn" @click="random_value">Click to try!</button>
+    <button id="redeemBtn" @click="random_value">Click to Redeem!</button>
   </div>
-  <h2 v-if="this.collect == 2">Click me to have me baby</h2>
-  <button v-if="this.collect == 1" @click="refresh">SUCK a cock</button>
+  <h2 v-if="this.collect == 2">Click me to have me!</h2>
+  <button id="refreshButton" v-if="this.collect == 1" @click="refresh">Refresh Page</button>
 </template>
 
 <script>
@@ -242,6 +242,22 @@ export default {
   border: 2px solid rgb(73, 121, 68);
   color: white;
   padding: 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 90px;
+  box-shadow: 5px 5px 5px #888888;
+}
+
+#refreshButton {
+  background-color: #5aa05d;
+  border: 2px solid rgb(73, 121, 68);
+  color: white;
+  padding: 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
