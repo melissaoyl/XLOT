@@ -72,11 +72,6 @@ export default {
   methods: {
     async getCounterValues() {
       const querySnapshot = await getDocs(collection(db, "users"));
-      //   querySnapshot.forEach((doc) => {
-      //     if (doc.data().emailAddress == this.user) {
-      //       console.log(doc.id, " => ", doc.data());
-      //     }
-      //   });
 
       let ind = 1;
       const map = [];
