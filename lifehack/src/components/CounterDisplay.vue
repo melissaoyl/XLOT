@@ -16,7 +16,7 @@
         <th>Abi</th>
         <th>Sally</th>
         <th>Tye</th>
-        <th>E</th>
+        <th>Erra</th>
       </tr>
       <tr>
         <td>
@@ -32,7 +32,7 @@
           <img style="width: 200px; height: 200px" src="@/assets/tye.png" />
         </td>
         <td>
-          <img style="width: 200px; height: 200px" src="@/assets/tye.png" />
+          <img style="width: 200px; height: 200px" src="@/assets/erra.png" />
         </td>
       </tr>
     </table>
